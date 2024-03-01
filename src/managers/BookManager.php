@@ -11,10 +11,11 @@ class BookManager extends AbstractEntityManager
      */
     public function getAllBooks() : array
     {
-        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, user.pseudo, book.available 
+        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, user.pseudo as owner, book.available 
         FROM book INNER JOIN user ON book.id_user = user.id";
         $result = $this->db->query($sql);
         $books = [];
+        // echo "<pre>";print_r($result->fetch());exit;
         while ($book = $result->fetch()) {
             $books[] = new Book($book);
         }
