@@ -1,0 +1,234 @@
+/**
+ * Déclaration des couleurs.
+ */
+ :root {
+    --backgroundColor: #F5F3EF;
+    --bookListColor: #FAF9F7;
+    --buttonColor: #00AC66;
+    --darkButtonColor: #006D41;
+}
+
+/**
+ * Valeur par défaut pour les balises.
+ */
+ body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'arial', sans-serif;
+    background-color: var(--backgroundColor);
+}
+
+h1, h2 {
+    font-family: "Playfair Display", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: var(--darkButtonColor);
+}
+
+/**
+ * Header
+ */
+ header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 5px 50px;
+    background-color: var(--backgroundColor);
+}
+
+header > nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--headerColor);
+}
+
+header > nav > a {
+    padding: 20px;
+    font-size: 16px;
+    color: #292929;
+}
+
+
+.readers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2rem;
+    gap: 200px;
+}
+
+.readers_description {
+    width: 330px;
+    margin-top: 5rem;
+    padding: 3rem 1rem;
+}
+
+.readers_description button, .progress_description button {
+    margin-left: 0;
+}
+
+.readers_description button a, .progress_description button a {
+    margin: 0 20px;
+}
+
+.readers_description p, .progress_description p {
+    color: #292929;
+}
+
+.readers_img p {
+    font-size: 15px;
+    color: lightgrey;
+    text-align: end;
+}
+
+/* Affichage des livres */
+
+.bookList {
+    background-color: var(--bookListColor);
+    padding: 4.5rem 0; /* A enlever verssion mobile */
+    text-align: center;
+}
+
+.bookList_title {
+    margin: 1rem 0 3rem;
+}
+
+.books_cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: unset;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin: 3rem;
+}
+
+.book_card {
+    width: 200px;
+    height: 324px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.book_card_description h3 {
+    margin: 18px 5px 10px 10px ;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.book_card_description .book_card_author {
+    margin: 5px 10px;
+    font-size: 15px;
+    color: lightgrey
+}
+
+.book_card_description .book_card_owner {
+    margin: 22px 10px; 
+    font-size: xx-small;
+    color: lightgrey
+}
+
+.button {
+    cursor: pointer;
+    margin: 1.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: unset;
+    background-color: var(--buttonColor);
+    padding: 1rem 1.25rem;
+    position: relative;
+    box-shadow: 0px 4px 7px 1px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    color: white;
+}
+  
+.button:hover::after {
+    opacity: 1;
+  }
+
+.button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    background: linear-gradient(175deg, #0e6537 0%, #00AC66 100%);
+    box-shadow: 0 1px 10px 1px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 300ms;
+}
+  
+.book_card_available {
+    position: relative;
+    top: -18.5rem;
+    left: 7rem;  
+}
+
+.book_card_available_detail {
+    position: absolute;
+    top: 2.5rem;
+    left: 7.3rem; 
+}
+
+.progress, .progress_description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+}
+
+.progress_steps {
+    display: flex;
+    flex-direction: row;    
+}
+
+.progress_description p {
+    width: 400px;
+    text-align: center;
+}
+
+.progress_steps p {
+    width: 195px;
+    margin: 20px;
+    padding: 50px 40px;
+    background-color: var(--bookListColor);
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+/** 
+ * Footer global de la page.
+ */
+footer {
+    /* position: fixed;
+    bottom: 0; */
+    display: flex;
+    justify-content: center;
+    width: 100%;;
+    padding: 20px;
+    color: #292929;
+    background-color: white;
+}
+
+
