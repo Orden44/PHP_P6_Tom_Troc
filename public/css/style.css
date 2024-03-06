@@ -26,10 +26,6 @@ h1, h2 {
     letter-spacing: 1px;
 }
 
-ul {
-    list-style: none;
-}
-
 a {
     text-decoration: none;
     color: inherit;
@@ -45,9 +41,9 @@ a:hover {
  header {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
-    padding: 5px 50px;
+    padding: 5px;
     background-color: var(--backgroundColor);
 }
 
@@ -57,12 +53,28 @@ header > nav {
     background-color: var(--headerColor);
 }
 
-header > nav > a {
-    padding: 20px;
-    font-size: 16px;
-    color: #292929;
+.messaging {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
 
+.messaging img, .account img {
+    height: 15px;
+}
+
+.nbrMessage {
+    background-color: #292929;
+    border-radius: 15px;
+    color: #FFFFFF;
+    padding: 3px;
+    font-size:xx-small;
+}
+
+header > nav > a, .messaging, .account {
+    padding: 20px;
+    color: #292929;
+}
 
 .readers {
     display: flex;
@@ -86,13 +98,13 @@ header > nav > a {
     margin: 0 20px;
 }
 
-.readers_description p, .progress_description p {
+.readers_description p, .progress_description p, .values_description p {
     color: #292929;
 }
 
 .readers_img p {
     font-size: 15px;
-    color: lightgrey;
+    color: darkgrey;
     text-align: end;
 }
 
@@ -111,10 +123,9 @@ header > nav > a {
 .books_cards {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: unset;
     flex-wrap: wrap;
-    gap: 3rem;
     margin: 3rem;
 }
 
@@ -124,6 +135,7 @@ header > nav > a {
     background-color: #FFFFFF;
     border-radius: 15px;
     text-align: left;
+    margin: 25px;
 }
 
 .book_card_description h3 {
@@ -136,13 +148,13 @@ header > nav > a {
 .book_card_description .book_card_author {
     margin: 5px 10px;
     font-size: 15px;
-    color: lightgrey
+    color: darkgrey
 }
 
 .book_card_description .book_card_owner {
     margin: 22px 10px; 
     font-size: xx-small;
-    color: lightgrey
+    color: darkgrey
 }
 
 .button {
@@ -158,12 +170,26 @@ header > nav > a {
     z-index: 1;
     color: white;
 }
-  
-.button:hover::after {
+
+.progress_button {
+    background-color: var(--backgroundColor);
+    color: var(--buttonColor);
+    cursor: pointer;
+    margin: 1.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: unset;
+    padding: 1rem 1.25rem;
+    position: relative;
+    box-shadow: 0px 4px 7px 1px var(--buttonColor);
+    z-index: 1;
+}
+
+.button:hover::after, .progress_button:hover::after {
     opacity: 1;
   }
 
-.button::after {
+.button::after, .progress_button::after {
     content: "";
     position: absolute;
     top: 0;
@@ -176,6 +202,10 @@ header > nav > a {
     opacity: 0;
     z-index: -1;
     transition: opacity 300ms;
+}
+
+.progress_button:hover {
+    color: white;
 }
   
 .book_card_available {
@@ -190,7 +220,7 @@ header > nav > a {
     left: 7.3rem; 
 }
 
-.progress, .progress_description {
+.progress, .progress_description, .values {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -207,6 +237,10 @@ header > nav > a {
     text-align: center;
 }
 
+.values_description p {
+    width: 400px;
+}
+
 .progress_steps p {
     width: 195px;
     margin: 20px;
@@ -216,19 +250,41 @@ header > nav > a {
     text-align: center;
 }
 
+.values_img {
+    width: 550px;
+    display: flex;
+    font-size: 15px;
+    color: darkgrey;
+}
+
+.values_img img {
+    padding-left: 220px;
+}
+
+.values_img p {
+    margin-left: 70px;
+}
 
 /** 
  * Footer global de la page.
  */
-footer {
-    /* position: fixed;
-    bottom: 0; */
+footer  {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-end;
     width: 100%;;
-    padding: 20px;
     color: #292929;
-    background-color: white;
+    background-color: var(--bookListColor);
 }
+
+footer > nav {
+    display: flex;
+    gap: 30px;
+    margin: 20px;
+}
+
+/* footer > nav .logo {
+   margin: 15px 30px 0 0;
+} */
 
 

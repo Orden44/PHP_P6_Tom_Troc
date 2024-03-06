@@ -15,7 +15,6 @@ class BookManager extends AbstractEntityManager
         FROM book INNER JOIN user ON book.id_user = user.id";
         $result = $this->db->query($sql);
         $books = [];
-        // echo "<pre>";print_r($result->fetch());exit;
         while ($book = $result->fetch()) {
             $books[] = new Book($book);
         }
@@ -28,8 +27,8 @@ class BookManager extends AbstractEntityManager
      */
     public function lastBooks() : array
     {
-        $sql = "SELECT * FROM `book`GROUP BY id DESC
-        LIMIT 4";
+        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, user.pseudo as owner, book.available 
+        FROM book INNER JOIN user ON book.id_user = user.id GROUP BY id DESC LIMIT 4";
         $result = $this->db->query($sql);
         $books = [];
 
@@ -46,7 +45,8 @@ class BookManager extends AbstractEntityManager
      */
     public function getBookById(int $id) : ?Book
     {
-        $sql = "SELECT * FROM book WHERE id = :id";
+        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, user.pseudo as owner, book.available 
+        FROM book INNER JOIN user ON book.id_user = user.id WHERE book.id = :id";
         $result = $this->db->query($sql, ['id' => $id]);
         $book = $result->fetch();
         if ($book) {

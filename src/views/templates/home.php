@@ -48,10 +48,22 @@
             <p>Proposez un échange et discutez avec d'autres passionnés de lecture.</p>
         </div>
         <a href="index.php?action=books">
-            <button class="button progress_button">Voir tous les livres</button>
+            <button class="progress_button">Voir tous les livres</button>
         </a>
     </div>
     <div class="progress_img">
-        <img src="public/img/reader in library.png" alt="reader in library">
+        <img src="public/img/ReaderInLibrary.png" alt="reader in library">
+    </div>
+</section>
+<section class="values">
+    <div class="values_description">
+        <h2>Nos valeurs</h2>
+        <p>Chez Tom Troc, nous mettons l'accent sur le partage, la découverte et la communauté. Nos valeurs sont ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. Nous croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes.</p>
+        <p>Notre association a été fondée avec une conviction profonde : chaque livre mérite d'être lu et partagé.</p>
+        <p>Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter, de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les étagères.</p>
+    </div>
+    <div class="values_img">
+        <p>L'équipe Tom Troc</p>
+        <img src="public/img/Vector2.svg" alt="heart icon">
     </div>
 </section>
