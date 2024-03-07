@@ -4,7 +4,14 @@
      */
 ?>
 <section class="bookList">
-    <h2 class="bookList_title">Nos livres à l'échange</h2>
+    <div class="book_search">
+        <h2 class="bookList_title">Nos livres à l'échange</h2>
+        <form class="search" action="index.php?action=books" method="post">
+            <img src="public/img/Union.png" alt="icon search">      
+            <input type="search" id="search_input" name="search" placeholder="Rechercher un livre" autocomplete="off" aria-label="Search" aria-describedby="search-addon" />
+        </form>
+
+    </div>
     <div class="books_cards">
         <?php foreach($books as $book) { ?>
             <div class="book_card">
