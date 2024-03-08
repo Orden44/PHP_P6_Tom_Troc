@@ -21,14 +21,23 @@
 
 <body>
     <header>
-        <img class="logo" src="public/img/logo.svg" alt="logo Tom Troc">
+        <a href="index.php">
+            <img class="logo" src="public/img/logo.svg" alt="logo Tom Troc">
+        </a>
         <nav>
             <a href="index.php">Acceuil</a>
             <a href="index.php?action=books">Nos livres à l'échange</a>
         </nav>
         <nav>
-            <a href="index.php?action=messaging">Messagerie</a>
-            <a href="index.php?action=compte">Mon compte</a>
+            <div class="messaging">
+                <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
+                <a href="index.php?action=messaging">Messagerie</a>
+                <div class="nbrMessage">3</div>
+            </div>
+            <div class="account">
+               <img src="public/img/IconMonCompte.svg" alt="icon mon compte">
+                <a href="index.php?action=compte">Mon compte</a>
+            </div>
             <a href="index.php?action=connexion">Connexion</a>
         </nav>
     </header>
@@ -38,7 +47,14 @@
     </main>
     
     <footer>
-        <p>Copyright © Tom Troc 2024 - Openclassrooms</p>
+        <nav>
+            <a href="#">Politique de confidentialité</a>
+            <a href="#">Mentions légales</a>
+            <a href="#">Tom Troc©</a>
+            <a href="index.php">
+                <img class="logo" src="public/img/Group10.png" alt="logo Tom Troc">
+            </a>
+        </nav>
     </footer>
 </body>
 </html>

@@ -19,12 +19,9 @@ class BookController
     {
         $bookManager = new BookManager();
         $books = $bookManager->getAllBooks();
-        
         $view = new View("Livres");
         $view->render("books", ['books' => $books]);
     }
-
-
 
     /**
      * Affiche le détail d'un livre.
