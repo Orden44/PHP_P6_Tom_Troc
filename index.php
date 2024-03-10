@@ -27,6 +27,31 @@ try {
             $bookController->showBook();
             break;
 
+        case 'connectionForm':
+            $adminController = new AdminController();
+            $adminController->displayConnectionForm();
+            break;
+
+        case 'signupForm': 
+            $adminController = new AdminController();
+            $adminController->displaySignup();
+            break;
+    
+        case 'connectUser': 
+            $adminController = new AdminController();
+            $adminController->connectUser();
+            break;
+
+        case 'registerUser': 
+            $adminController = new AdminController();
+            $adminController->registerUser();
+            break;
+    
+        case 'disconnectUser': 
+            $adminController = new AdminController();
+            $adminController->disconnectUser();
+            break;
+        
         default:
             throw new Exception("La page demandée n'existe pas.");
     }

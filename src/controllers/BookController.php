@@ -3,11 +3,25 @@
 class BookController 
 {
     /**
+     * Vérifie que l'utilisateur est connecté.
+     * @return void
+     */
+    private function checkIfUserIsConnected() : void
+    {
+        // On vérifie que l'utilisateur est connecté.
+        if (!isset($_SESSION['user'])) {
+            Utils::redirect("connectionForm");
+        }
+    }
+
+    /**
      * Affiche la page d'accueil.
      * @return void
      */
     public function showHome() : void
     {
+        $this->checkIfUserIsConnected();
+
         $bookManager = new BookManager();
         $books = $bookManager->lastBooks();
         
@@ -17,6 +31,8 @@ class BookController
 
     public function showAllBooks() : void
     {
+        $this->checkIfUserIsConnected();
+
         $bookManager = new BookManager();
         $books = $bookManager->getAllBooks();
         $view = new View("Livres");
@@ -29,6 +45,8 @@ class BookController
      */
     public function showBook() : void
     {
+        $this->checkIfUserIsConnected();
+
         // Récupération de l'id du livre demandé.
         $id = Utils::request("id", -1);
         $bookManager = new BookManager();
@@ -40,15 +58,5 @@ class BookController
 
         $view = new View($book->getTitle());
         $view->render("detailBook", ['book' => $book]);
-    }
-
-    /**
-     * Affiche le formulaire d'ajout d'un article.
-     * @return void
-     */
-    public function addArticle() : void
-    {
-        $view = new View("Ajouter un article");
-        $view->render("addArticle");
     }
 }

@@ -12,9 +12,9 @@
  * Valeur par défaut pour les balises.
  */
  body {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     font-family: 'arial', sans-serif;
     background-color: var(--backgroundColor);
 }
@@ -133,7 +133,7 @@ header > nav > a, .messaging, .account {
 
 .bookList {
     background-color: var(--bookListColor);
-    padding: 0 8rem;
+    padding: 2rem 8rem;
     text-align: center;
 }
 
@@ -279,6 +279,45 @@ header > nav > a, .messaging, .account {
 
 .values_img p {
     margin-left: 70px;
+}
+
+.connection-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bookListColor);
+}
+
+.connection-form form {
+    width: 322px;
+    margin: 180px;
+}
+
+.formGrid {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGrid .button {
+    margin: 1.5rem 0;
+}
+
+.formGrid input {
+    margin: 0.5rem 0 1.5rem;
+    border: none;
+    height: 40px; 
+}
+
+.registration {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.registration a {
+    text-decoration: underline;
 }
 
 /** 

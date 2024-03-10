@@ -9,7 +9,7 @@ class User extends AbstractEntity
     private string $pseudo = "";
     private string $password = "";
     private string $mail = "";
-    private string $picture = "";
+    private ?string $picture = "";
     private ?DateTime $dateCreation = null;
 
     /**
@@ -70,7 +70,7 @@ class User extends AbstractEntity
      * Setter pour la photo de l'utilisateur
      * @param string $picture
      */
-    public function setPicture(string $picture) : void 
+    public function setPicture(?string $picture) : void 
     {
         $this->picture = $picture;
     }
