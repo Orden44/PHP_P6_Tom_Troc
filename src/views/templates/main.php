@@ -24,30 +24,31 @@
         <a href="index.php">
             <img class="logo" src="public/img/logo.svg" alt="logo Tom Troc">
         </a>
-        <nav>
-            <a href="index.php">Accueil</a>
-            <a href="index.php?action=books">Nos livres à l'échange</a>
-        </nav>
-        <nav>
-            <div class="messaging">
-                <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
-                <a href="index.php?action=messaging">Messagerie</a>
-                <div class="nbrMessage">3</div>
-            </div>
-            <div class="account">
-               <img src="public/img/IconMonCompte.svg" alt="icon mon compte">
-                <a href="index.php?action=compte">Mon compte</a>
-            </div>
-            <?php 
-                // Si on est connecté, on affiche le bouton de déconnexion, sinon, on affiche le bouton de connexion : 
+        <?php 
+                // Si on est connecté, on affiche le menu
                 if (isset($_SESSION['user'])) {
-                    echo '<a href="index.php?action=disconnectUser">Déconnexion</a>';
+                    echo '<nav>
+                            <a href="index.php">Accueil</a>
+                            <a href="index.php?action=books">Nos livres à l\'échange</a>
+                        </nav>
+                        <nav>
+                            <div class="messaging">
+                                <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
+                                <a href="index.php?action=messaging">Messagerie</a>
+                                <div class="nbrMessage">3</div>
+                            </div>
+                            <div class="account">
+                                <img src="public/img/IconMonCompte.svg" alt="icon mon compte">
+                                <a href="index.php?action=compte">Mon compte</a>
+                            </div>
+                            <a href="index.php?action=disconnectUser">Déconnexion</a>
+                        </nav>';
+                } else {
+                    echo '<nav>
+                            <a href="index.php">Accueil</a>
+                        </nav>';
                 }
-                else {
-                    echo '<a href="index.php?action=connectionForm">Connexion</a>';
-                }          
-            ?>
-        </nav>
+        ?>
     </header>
 
     <main>    
