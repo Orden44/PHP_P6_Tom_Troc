@@ -73,10 +73,9 @@ class AdminController
     
     /**
      * Inscription de l'utilisateur.
-     * @return void
      */
-    public function registerUser() : void 
-    {  
+    public function registerUser() 
+    {      
         // On récupère les données du formulaire.
         $pseudo = Utils::request("pseudo");
         $mail = Utils::request("mail");
@@ -103,8 +102,8 @@ class AdminController
         //On vérifie que le mail soit valide.
         if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
             throw new Exception("Entrez un mail valide.");
-        }
-        
+        }      
+
         // On crée l'objet User.
         $user = new User([
             'pseudo' => htmlspecialchars($pseudo),

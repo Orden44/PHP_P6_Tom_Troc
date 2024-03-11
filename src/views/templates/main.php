@@ -16,7 +16,7 @@
     <title>Tom Troc</title>
     <link rel="stylesheet" href="./public/css/style.css">
     <script src="https://kit.fontawesome.com/fd12a3a6d1.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -28,24 +28,39 @@
                 // Si on est connecté, on affiche le menu
                 if (isset($_SESSION['user'])) {
                     echo '<nav>
-                            <a href="index.php">Accueil</a>
-                            <a href="index.php?action=books">Nos livres à l\'échange</a>
+                            <ul>
+                                <li 
+                                class="(isset($_GET[\'action\']) && !empty($_GET[\'action\'] == "home")) ? \'active\' : "" ">
+                                    <a href="index.php?action=home">Accueil</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?action=books">Nos livres à l\'échange</a>                                
+                                </li>
+                            </ul>
                         </nav>
                         <nav>
-                            <div class="messaging">
-                                <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
-                                <a href="index.php?action=messaging">Messagerie</a>
-                                <div class="nbrMessage">3</div>
-                            </div>
-                            <div class="account">
-                                <img src="public/img/IconMonCompte.svg" alt="icon mon compte">
-                                <a href="index.php?action=compte">Mon compte</a>
-                            </div>
-                            <a href="index.php?action=disconnectUser">Déconnexion</a>
+                            <ul>
+                                <li class="messaging">
+                                    <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
+                                    <a href="index.php?action=messaging">Messagerie</a>
+                                    <div class="nbrMessage">3</div>
+                                </li>
+                                <li class="account">
+                                    <img src="public/img/IconMonCompte.svg" alt="icon mon compte">
+                                    <a href="index.php?action=compte">Mon compte</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?action=disconnectUser">Déconnexion</a>
+                                </li>
+                            </ul>
                         </nav>';
                 } else {
                     echo '<nav>
-                            <a href="index.php">Accueil</a>
+                            <ul>
+                                <li>
+                                    <a href="index.php?action=home">Accueil</a>
+                                </li>
+                            </ul>
                         </nav>';
                 }
         ?>
@@ -57,9 +72,9 @@
     
     <footer>
         <nav>
-            <a href="#">Politique de confidentialité</a>
-            <a href="#">Mentions légales</a>
-            <a href="#">Tom Troc©</a>
+            <a href="index.php">Politique de confidentialité</a>
+            <a href="index.php">Mentions légales</a>
+            <a href="index.php">Tom Troc©</a>
             <a href="index.php">
                 <img class="logo" src="public/img/Group10.png" alt="logo Tom Troc">
             </a>

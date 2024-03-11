@@ -6,16 +6,17 @@
     --bookListColor: #FAF9F7;
     --buttonColor: #00AC66;
     --darkButtonColor: #006D41;
+    --grayText: #a6a6a6;
+    --darkGray: #292929;
+
+
 }
 
-/**
- * Valeur par défaut pour les balises.
- */
+* {
+    font-family: "Inter";
+  }
+  
  body {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-    font-family: 'arial', sans-serif;
     background-color: var(--backgroundColor);
 }
 
@@ -43,14 +44,23 @@ a:hover {
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
-    padding: 5px;
     background-color: var(--backgroundColor);
+    align-items: center;
 }
 
-header > nav {
+ header ul {
+    margin: 0;
     display: flex;
-    justify-content: flex-end;
-    background-color: var(--headerColor);
+    align-items: center;
+}
+
+header li {
+    margin: 20px;
+    list-style: none;
+}
+
+.active {
+    font-weight: bold;
 }
 
 .messaging {
@@ -64,7 +74,7 @@ header > nav {
 }
 
 .nbrMessage {
-    background-color: #292929;
+    background-color: var(--darkGray);
     border-radius: 15px;
     color: #FFFFFF;
     padding: 3px;
@@ -73,7 +83,7 @@ header > nav {
 
 header > nav > a, .messaging, .account {
     padding: 20px;
-    color: #292929;
+    color: var(--darkGray);
 }
 
 .readers {
@@ -99,13 +109,15 @@ header > nav > a, .messaging, .account {
 }
 
 .readers_description p, .progress_description p, .values_description p {
-    color: #292929;
+    color: var(--darkGray);
 }
 
 .readers_img p {
-    font-size: 15px;
-    color: darkgrey;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--grayText);
     text-align: end;
+    margin: 5px 15px 0 0;
 }
 
 /* Affichage des livres */
@@ -125,10 +137,10 @@ header > nav > a, .messaging, .account {
     border: none;
     height: 40px; 
     padding-left: 15px;
-    font-size: 16px;
+    font-size: 14px;
 }
 #search_input::placeholder {
-    color: darkgrey;
+    color: var(--grayText);
 }
 
 .bookList {
@@ -163,14 +175,15 @@ header > nav > a, .messaging, .account {
 
 .book_card_description .book_card_author {
     margin: 5px 10px;
-    font-size: 15px;
-    color: darkgrey
+    font-size: 14px;
+    color: var(--grayText);
 }
 
 .book_card_description .book_card_owner {
     margin: 22px 10px; 
-    font-size: xx-small;
-    color: darkgrey
+    font-size: 10px;
+    font-style: italic;
+    color: var(--grayText);
 }
 
 .button {
@@ -269,8 +282,9 @@ header > nav > a, .messaging, .account {
 .values_img {
     width: 550px;
     display: flex;
-    font-size: 15px;
-    color: darkgrey;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--grayText);
 }
 
 .values_img img {
@@ -328,7 +342,7 @@ footer  {
     flex-direction: row;
     justify-content: flex-end;
     width: 100%;;
-    color: #292929;
+    color: var(--darkGray);
     background-color: #FFFFFF;
 }
 
