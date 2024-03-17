@@ -6,6 +6,7 @@ require_once 'config/autoload.php';
 // On récupère l'action demandée par l'utilisateur.
 // Si aucune action n'est demandée, on affiche la page d'accueil.
 $action = Utils::request('action', 'home');
+$id = Utils::request('id');
 
 // Try catch global pour gérer les erreurs
 try {
@@ -24,9 +25,19 @@ try {
         
         case 'showBook': 
             $bookController = new BookController();
-            $bookController->showBook();
+            $bookController->showBook($id);
             break;
-
+        
+        case 'editBook':
+            $bookController = new BookController();
+            $bookController->editBook($id);
+            break;
+            
+        case 'messaging':
+            $messageController = new MessageController();
+            $messageController->showMessaging();
+            break;
+      
         case 'connectionForm':
             $adminController = new AdminController();
             $adminController->displayConnectionForm();
@@ -52,6 +63,16 @@ try {
             $adminController->disconnectUser();
             break;
         
+        case 'profile': 
+            $userController = new UserController();
+            $userController->showProfile();
+            break;
+    
+        case 'modifyUserInfo':
+            $userController = new UserController();
+            $userController->modifyUserInfo();
+            break;
+      
         default:
             throw new Exception("La page demandée n'existe pas.");
     }
