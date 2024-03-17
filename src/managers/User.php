@@ -79,7 +79,7 @@ class User extends AbstractEntity
      * Getter pour la photo.
      * @return string
      */
-    public function getPicture() : string 
+    public function getPicture() : ?string 
     {
         return $this->picture;
     }
