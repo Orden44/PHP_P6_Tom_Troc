@@ -27,7 +27,6 @@
                         <h3 class="book_card_title"><?= $book->getTitle() ?></h3>
                         <p class="book_card_author"><?= $book->getAuthor() ?></p>
                         <p class="book_card_owner">Vendu par : <?=$book->getOwner() ?></p>
-                        <!-- <?= "<pre>"; print_r($book); echo "</pre>"; ?> -->
                     </div>
                 </a>
             </div>

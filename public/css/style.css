@@ -6,16 +6,16 @@
     --bookListColor: #FAF9F7;
     --buttonColor: #00AC66;
     --darkButtonColor: #006D41;
+    --grayText: #a6a6a6;
+    --darkGray: #292929;
+    --lightgreen: #d1f6e7;
 }
 
-/**
- * Valeur par défaut pour les balises.
- */
+* {
+    font-family: "Inter";
+  }
+  
  body {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
-    font-family: 'arial', sans-serif;
     background-color: var(--backgroundColor);
 }
 
@@ -43,14 +43,23 @@ a:hover {
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
-    padding: 5px;
     background-color: var(--backgroundColor);
+    align-items: center;
 }
 
-header > nav {
+ header ul {
+    margin: 0;
     display: flex;
-    justify-content: flex-end;
-    background-color: var(--headerColor);
+    align-items: center;
+}
+
+header li {
+    margin: 20px;
+    list-style: none;
+}
+
+.active {
+    font-weight: bold;
 }
 
 .messaging {
@@ -64,7 +73,7 @@ header > nav {
 }
 
 .nbrMessage {
-    background-color: #292929;
+    background-color: var(--darkGray);
     border-radius: 15px;
     color: #FFFFFF;
     padding: 3px;
@@ -73,7 +82,7 @@ header > nav {
 
 header > nav > a, .messaging, .account {
     padding: 20px;
-    color: #292929;
+    color: var(--darkGray);
 }
 
 .readers {
@@ -99,13 +108,15 @@ header > nav > a, .messaging, .account {
 }
 
 .readers_description p, .progress_description p, .values_description p {
-    color: #292929;
+    color: var(--darkGray);
 }
 
 .readers_img p {
-    font-size: 15px;
-    color: darkgrey;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--grayText);
     text-align: end;
+    margin: 5px 15px 0 0;
 }
 
 /* Affichage des livres */
@@ -125,10 +136,10 @@ header > nav > a, .messaging, .account {
     border: none;
     height: 40px; 
     padding-left: 15px;
-    font-size: 16px;
+    font-size: 14px;
 }
 #search_input::placeholder {
-    color: darkgrey;
+    color: var(--grayText);
 }
 
 .bookList {
@@ -163,14 +174,15 @@ header > nav > a, .messaging, .account {
 
 .book_card_description .book_card_author {
     margin: 5px 10px;
-    font-size: 15px;
-    color: darkgrey
+    font-size: 14px;
+    color: var(--grayText);
 }
 
 .book_card_description .book_card_owner {
     margin: 22px 10px; 
-    font-size: xx-small;
-    color: darkgrey
+    font-size: 10px;
+    font-style: italic;
+    color: var(--grayText);
 }
 
 .button {
@@ -269,8 +281,9 @@ header > nav > a, .messaging, .account {
 .values_img {
     width: 550px;
     display: flex;
-    font-size: 15px;
-    color: darkgrey;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--grayText);
 }
 
 .values_img img {
@@ -319,7 +332,18 @@ header > nav > a, .messaging, .account {
 .registration a {
     text-decoration: underline;
 }
+.owner {
+    display: flex;
+    align-items: center;
+}
 
+.owner img {
+    width: 48px;
+}
+
+.owner p {
+    margin: 0 10px;
+}
 /** 
  * Footer global de la page.
  */
@@ -328,7 +352,7 @@ footer  {
     flex-direction: row;
     justify-content: flex-end;
     width: 100%;;
-    color: #292929;
+    color: var(--darkGray);
     background-color: #FFFFFF;
 }
 
@@ -338,3 +362,220 @@ footer > nav {
     margin: 20px;
 }
 
+/* profile */
+.profile {
+    background-color: #faf9f7;
+    padding-bottom: 92px;
+  }
+  
+  .profile_card {
+    max-width: 95%; 
+  }
+  
+  .profile_title {
+    padding-top: 48px; 
+    padding-bottom: 32px; 
+    margin: 0;
+  }
+  
+  .profile_data {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+  }
+  
+  .avatar {
+    background-color: white;
+    border-radius: 20px;
+    width: 95%; 
+    margin: auto; 
+    padding: 20px; 
+  }
+  
+  .avatar_img {
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .profile_avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 48px;
+    padding-bottom: 32px;
+  }
+  
+  .avatar_input {
+    display: none;
+  }
+  
+  .avatar_label {
+    cursor: pointer;
+    margin-top: 5px;
+    text-decoration: underline;
+  }
+  
+  .avatar_line {
+    width: 242px; 
+    height: 1px;
+    background-color: var(--backgroundColor);
+    margin: 32px auto; 
+  }
+  
+  .avatar_title {
+    margin: 0;
+    margin-bottom: 11px;
+    font-size: 24px;
+  }
+  
+  .avatar_date {
+    margin-bottom: 21px;
+    font-size: 14px;
+    color: var(--grayText);
+  }
+  
+  .avatar_subtitle {
+    margin: 0;
+    margin-bottom: 6px;
+    font-size: 8px;
+    font-weight: normal;
+  }
+  
+  .avatar_count {
+    font-size: 14px;
+    display: flex;
+    gap: 5px;
+  }
+  
+  .personalInfo_title {
+    margin: 0;
+    margin-bottom: 26px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .avatar_label {
+    display: block;
+    font-size: 14px;
+    color: var(--grayText);
+    margin-bottom: 10px;
+  }
+  
+  .personalInfo_input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    border-radius: 6px;
+    background-color: #edf2f6;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+    padding: 0 14px;
+    font-size: 14px;
+    color: var(--grayText);
+  }
+
+  .personalInfo_input:focus {
+    background: var(--lightgreen);
+    color: var(--darkButtonColor);
+  }
+  
+  .profile_books {
+    max-width: 100%;
+    background-color: white;
+    margin-top: 2rem;
+    border-radius: 20px;
+  }
+  
+  .profileBooks_table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .profileBooks_head {
+    border-bottom: 1px solid grey;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .profile_books thead th {
+    text-align: left;
+    font-size: 0.5rem;
+    padding: 20px 20px 10px 20px; 
+    font-weight: normal;
+  }
+  
+  .profile_books thead th:first-child {
+    padding-left: 20px; 
+  }
+  
+  .profileBooks_table tr:last-child td:first-child {
+    border-bottom-left-radius: 20px;
+  }
+  
+  .profileBooks_table tr:last-child td:last-child {
+    border-bottom-right-radius: 20px;
+  }
+  
+  .profile_books tbody td {
+    border: none;
+    font-size: 12px;
+  }
+  
+  .profile_books tbody td:first-child {
+    padding-bottom: 20px; 
+    padding-top: 20px; 
+  }
+  
+  .profile_books tbody tr:nth-child(even) {
+    background-color: #edf2f6;
+  }
+  
+  .profile_books tbody img {
+    width: 78px;
+    height: 78px;
+    object-fit: cover;
+  }
+  
+  .profile_books tbody .description {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    max-width: 128px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    font-style: italic;
+  }
+  
+  .profile_books tbody .edit-delete a:first-child {
+    margin-right: 20px; 
+    color: black;
+  }
+  
+  .profile_books tbody .edit-delete a:last-child {
+    color: red;
+  }
+  
+  .profile_books tbody .indisponible {
+    background-color: #c46d6d;
+    color: white;
+    padding: 3.7px 13.31px;
+    width: fit-content;
+    border-radius: 29.58px;
+  }
+  
+  .profile_books tbody .disponible {
+    background-color: #6dc4a1;
+    color: white;
+    padding: 3.7px 13.31px;
+    width: fit-content;
+    border-radius: 29.58px;
+  }
+  
+  .background-page-edit-book {
+    background-color: #faf9f7;
+    padding-bottom: 92px;
+  }
+  

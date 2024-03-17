@@ -34,4 +34,20 @@ class UserManager extends AbstractEntityManager
         ]);
         return $result->rowCount() > 0;
     }
+
+    /**
+     * Modifier les informations d'un utilisateur dans la base de données.
+     */
+    public function updateUser(User $user) : void
+    {
+        $sql = "UPDATE user SET pseudo = :pseudo, password = :password, mail = :mail, picture = :picture WHERE id = :id";
+        $this->db->query($sql, [
+        'pseudo' => $user->getPseudo(),
+        'password' => $user->getPassword(),
+        'mail' => $user->getMail(),
+        'picture' => $user->getPicture(),
+        'id' => $user->getId()
+        ]);
+    }
+
 }

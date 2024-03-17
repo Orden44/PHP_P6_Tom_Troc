@@ -19,5 +19,7 @@
     <h3>DESCRIPTION</h3>
     <p><?= Utils::format($book->getContent()) ?></p>
     <h3>PROPTIETAIRE</h3>
-    <p> <?=$book->getOwner() ?></p>
+    <div class="owner">
+        <img src="<?= $book->getUserImage() ?>" alt="<?= $book->getOwner() ?>"><p><?= $book->getOwner() ?></p>
+    </div>
 </article>

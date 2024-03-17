@@ -2,7 +2,7 @@
 
 /**
  * Entité Book, un livre est défini par les champs
- * id, title, author, picture, content, id_user, available
+ * id, title, author, picture, content, propriétaire, image du propriétaire, available
  */
  class Book extends AbstractEntity 
  {
@@ -10,8 +10,8 @@
     private string $author = "";
     private string $picture = "";
     private string $content = "";
-    private int $idUser;
     private string $owner = "";
+    private string $userImage = "";
     private bool $available;
 
     /**
@@ -99,24 +99,6 @@
     }
 
     /**
-     * Setter pour l'id du posssesseur du livre. 
-     * @param int $idUser
-     */
-    public function setIdOwner(int $idUser) : void 
-    {
-        $this->idUser = $idUser;
-    }
-    
-    /**
-     * Getter pour l'id du possesseur.
-     * @return int
-     */
-    public function getIdOwner() : int 
-    {
-        return $this->idUser;
-    }
-
-    /**
      * Setter pour le possesseur.
      * @param string $owner
      */
@@ -132,6 +114,24 @@
     public function getOwner() : string 
     {
         return $this->owner;
+    }
+
+    /**
+     * Getter pour l'image du possesseur.
+     * @return string
+     */
+    public function getUserImage(): string
+    {
+        return $this->userImage;
+    }
+
+    /**
+     * Setter pour l'id du posssesseur du livre. 
+     * @param string $idUser
+     */
+    public function setUserImage(string $userImage): void
+    {
+        $this->userImage = $userImage;
     }
 
     /**
