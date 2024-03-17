@@ -51,7 +51,7 @@ class AdminController
         }
 
         // On connecte l'utilisateur.
-        $_SESSION['user'] = $user;
+        $_SESSION['user'] = serialize($user);
         $_SESSION['idUser'] = $user->getId();
 
         // On redirige vers la page d'acceuil.
@@ -120,7 +120,7 @@ class AdminController
         }
 
         // On connecte l'utilisateur.
-        $_SESSION['user'] = $user;
+        $_SESSION['user'] = serialize($user);
         $_SESSION['idUser'] = $user->getId();
 
         // On redirige vers la page d'accueil.
