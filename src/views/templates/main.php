@@ -18,58 +18,56 @@
     <script src="https://kit.fontawesome.com/fd12a3a6d1.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <header>
         <a href="index.php">
             <img class="logo" src="public/img/logo.svg" alt="logo Tom Troc">
-        </a>
-        <?php 
-                // Si on est connecté, on affiche le menu
-                if (isset($_SESSION['user'])) {
-                    echo '<nav>
-                            <ul>
-                                <li 
-                                class="(isset($_GET[\'action\']) && !empty($_GET[\'action\'] == "home")) ? \'active\' : "" ">
-                                    <a href="index.php?action=home">Accueil</a>
-                                </li>
-                                <li>
-                                    <a href="index.php?action=books">Nos livres à l\'échange</a>                                
-                                </li>
-                            </ul>
-                        </nav>
-                        <nav>
-                            <ul>
-                                <li class="messaging">
-                                    <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
-                                    <a href="index.php?action=messaging">Messagerie</a>
-                                    <div class="nbrMessage">3</div>
-                                </li>
-                                <li class="account">
-                                    <img src="public/img/IconMonCompte.svg" alt="icon mon compte">
-                                    <a href="index.php?action=compte">Mon compte</a>
-                                </li>
-                                <li>
-                                    <a href="index.php?action=disconnectUser">Déconnexion</a>
-                                </li>
-                            </ul>
-                        </nav>';
-                } else {
-                    echo '<nav>
-                            <ul>
-                                <li>
-                                    <a href="index.php?action=home">Accueil</a>
-                                </li>
-                            </ul>
-                        </nav>';
-                }
-        ?>
+        </a>       
+        <?php if (isset($_SESSION['user'])): ?>
+            <nav>
+                <ul>
+                    <li 
+                        class="<?= (isset($_GET['action']) && !empty($_GET['action'] == "home")) ? 'active' : "" ?>">
+                        <a href="index.php?action=home">Accueil</a>
+                    </li>
+                    <li
+                        class="<?= (isset($_GET['action']) && !empty($_GET['action'] == "books")) ? 'active' : "" ?>">
+                        <a href="index.php?action=books">Nos livres à l'échange</a>                                
+                    </li>
+                </ul>
+            </nav>
+            <nav>
+                <ul>
+                    <li 
+                        class="messaging <?= (isset($_GET['action']) && !empty($_GET['action'] == "messaging")) ? 'active' : "" ?>">
+                        <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
+                        <a href="index.php?action=messaging">Messagerie</a>
+                    </li>
+                    <li 
+                        class="account <?= (isset($_GET['action']) && !empty($_GET['action'] == "profile")) ? 'active' : "" ?>">
+                        <img src="public/img/IconMonCompte.svg" alt="icon mon compte">
+                        <a href="index.php?action=profile">Mon compte</a>
+                    </li>
+                    <li
+                        class=" <?=(isset($_GET['action']) && !empty($_GET['action'] == "connectionForm")) ? 'active' : "" ?>">
+                        <a href="index.php?action=disconnectUser">Déconnexion</a>
+                    </li>
+                </ul>
+            </nav>
+            <?php else: ?>
+                <nav>
+                    <ul>
+                        <li
+                            class=" <?= (isset($_GET['action']) && !empty($_GET['action'] == "connectionForm")) ? 'active' : "" ?>">
+                            <a href="index.php?action=connectUser">Connexion</a>
+                        </li>
+                    </ul>
+                </nav>
+            <?php endif; ?>
     </header>
-
     <main>    
         <?= $content /* Ici est affiché le contenu réel de la page. */ ?>
-    </main>
-    
+    </main>    
     <footer>
         <nav>
             <a href="index.php">Politique de confidentialité</a>
