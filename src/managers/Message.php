@@ -2,32 +2,51 @@
 
 /**
  * Entité représentant un message.
- * Avec les champs id, id_user, content et date_creation.
+ * Avec les champs id, id_chats, content et date_creation.
  */
 class Message extends AbstractEntity 
 {
-    private int $idUser;
+    private string $sender = "";
+    private string $receiver = "";
     private string $content = "";
     private ?DateTime $dateCreation = null;
     
     /**
-     * Getter pour l'id du destinataire du message.
-     * @return int
+     * Setter pour l'id de l'expéditeur du message.
+     * @param string $sender
      */
-    public function getIdUser(): int 
+    public function setSender(string $sender) : void 
     {
-        return $this->idUser;
+        $this->sender = $sender;
     }
 
     /**
-     * Setter pour l'id du destinataire.
-     * @param int $idUser
-     * @return void
+     * Getter pour l'id de l'expéditeur du message.
+     * @return string
      */
-    public function setIdUser(int $idUser): void 
+    public function getSender() : string 
     {
-        $this->idUser = $idUser;
+        return $this->sender;
     }
+
+        /**
+     * Setter pour l'id du récepteur du message.
+     * @param string $receiver
+     */
+    public function setReceiver(string $receiver) : void 
+    {
+        $this->receiver = $receiver;
+    }
+
+    /**
+     * Getter pour l'id de l'expéditeur du message.
+     * @return string
+     */
+    public function getReceiver() : string 
+    {
+        return $this->receiver;
+    }
+
 
     /**
      * Getter pour le contenu.

@@ -107,4 +107,25 @@ class User extends AbstractEntity
     {
         return $this->dateCreation;
     }
+    
+    /**
+     * Set l'URL de l'image à partir d'un formulaire soumis.
+     * La méthode renvoie un tableau d'erreurs si l'image n'est pas valide.
+     * @param string $imgName
+     * @param string $filePath
+     * @return array
+     */
+    public function setImageFromForm($imgName, $filePath): array 
+    {
+        if (!empty($_FILES[$imgName]['name'])) {
+            list($picErrors, $picPath) = Utils::uploadImage($imgName, $filePath);
+
+            if (empty($picErrors)) {
+                $this->setPicture($picPath);
+            }
+        } 
+
+        return $picErrors ?? [];
+    }
+
 }

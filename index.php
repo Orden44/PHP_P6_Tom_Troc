@@ -28,11 +28,21 @@ try {
             $bookController->showBook($id);
             break;
         
-        case 'editBook':
+        case 'showUpdateBookForm':
             $bookController = new BookController();
-            $bookController->editBook($id);
+            $bookController->showUpdateBookForm($id);
             break;
-            
+        
+        case 'updateBook':
+            $bookController = new BookController();
+            $bookController->updateBook($id);
+            break;
+
+        case 'deleteBook':
+            $bookController = new BookController();
+            $bookController->deleteBook($id);
+            break;
+                
         case 'messaging':
             $messageController = new MessageController();
             $messageController->showMessaging();

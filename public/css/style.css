@@ -127,19 +127,26 @@ header > nav > a, .messaging, .account {
     align-items: center;
 }
 
-.search {
-   background-color: white;
-   padding-left: 10px;
+.input-container {
+  position: relative;
+  background-color: white;
 }
 
-#search_input{
-    border: none;
-    height: 40px; 
-    padding-left: 15px;
-    font-size: 14px;
+.fa-magnifying-glass {
+  position: absolute;
+  left: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--grayText);
 }
-#search_input::placeholder {
-    color: var(--grayText);
+
+.search_input {
+  color: var(--grayText);
+  font-size: 14px;
+  padding: 1rem 12px;
+  border-radius: 6px;
+  border: 2px solid #f0f0f0;
+  padding-left: 40px; 
 }
 
 .bookList {
@@ -407,7 +414,7 @@ footer > nav {
     padding-bottom: 32px;
   }
   
-  .avatar_input {
+  .input_none {
     display: none;
   }
   
@@ -477,8 +484,8 @@ footer > nav {
   }
 
   .personalInfo_input:focus {
-    background: var(--lightgreen);
-    color: var(--darkButtonColor);
+    /* border: 3px solid var(--buttonColor); */
+    color: var(--darkGray);
   }
   
   .profile_books {
@@ -559,7 +566,7 @@ footer > nav {
   }
   
   .profile_books tbody .indisponible {
-    background-color: #c46d6d;
+    background-color: #c56d6d;
     color: white;
     padding: 3.7px 13.31px;
     width: fit-content;
@@ -567,7 +574,7 @@ footer > nav {
   }
   
   .profile_books tbody .disponible {
-    background-color: #6dc4a1;
+    background-color: #6dc5a1;
     color: white;
     padding: 3.7px 13.31px;
     width: fit-content;

@@ -10,6 +10,5 @@ class MessageController
     {
         $view = new View("Messagerie");
         $view->render("messaging");
-
     }
 }

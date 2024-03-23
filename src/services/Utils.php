@@ -86,4 +86,57 @@ class Utils {
     {
         return $_REQUEST[$variableName] ?? $defaultValue;
     }
+
+    /**
+    * Méthode pour valider une image
+    * @param array $file Le fichier à valider
+    * @param int $maxSize La taille maximale du fichier
+    * @param array $validExtensions Les extensions valides pour le fichier
+    * @return array Un tableau contenant les erreurs
+    */
+    private static function imageValidate($file, $maxSize = 500000, $validExtensions = ['jpg', 'jpeg', 'png', 'webp']) : array
+    {
+        $errors = [];
+        $fileSize = $file['size'];
+        $fileExtension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+
+        if ($fileSize > $maxSize) {
+            $errors[] = "Le fichier est trop grand.";
+        }
+
+        if (!in_array($fileExtension, $validExtensions)) {
+            $errors[] = "Seuls les formats jpg, jpeg, png et webp sont autorisés.";
+        }
+
+        return $errors;
+    }
+
+    /**
+    * Méthode pour télécharger une image
+    * @param string $fileName Le nom du fichier à télécharger
+    * @param string $targetDir Le répertoire dans lequel télécharger le fichier
+    * @return array Un tableau contenant les erreurs et le chemin du fichier téléchargé 
+    */
+    public static function uploadImage($fileName, $targetDir): array
+    {
+        $targetFile = $targetDir . basename($_FILES[$fileName]["name"]);
+        $imageFileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
+
+        // valider l'image
+        $picErrors = self::imageValidate($_FILES[$fileName]);
+
+        if (!empty ($picErrors)) {
+        return [$picErrors, null];
+        }
+
+        if (!move_uploaded_file($_FILES[$fileName]["tmp_name"], $targetFile)) {
+        $picErrors[] = "Votre fichier n'a pas pu être téléchargé.";
+
+        return [$picErrors, null];
+        }
+
+        return [$picErrors, $targetFile];
+
+    }
+
 }

@@ -41,7 +41,7 @@ class UserController
 
         // On crée l'objet utilisateur.
         $user = new User([
-        'id' => $id, // Si l'id vaut -1, l'utilisateur sera ajouté. Sinon, il sera modifié.
+        'id' => $id, 
         'pseudo' => $pseudo,
         'password' => password_hash($password, PASSWORD_DEFAULT),
         'mail' => $mail,
@@ -53,16 +53,23 @@ class UserController
             throw new Exception("Tous les champs sont obligatoires.");
         }
 
+        // Traiter la photo de profil
+        $picErrors = $user->setImageFromForm('picture', 'public/img/userpics/');
+
         // Mettre à jour l'utilisateur dans la base de données
         $userManager->updateUser($user);
 
+        // Récupére les livres de l'utilisateur
+        $bookManager = new BookManager();
+        $books = $bookManager->getBookById(null, $user->getId());        
+
         if ($user) {
-            unset($_SESSION['user']); ?>
-            <div class="message">
-                <h3>Information</h3>
-                <p>votre compte a bien était midifié</p>
-                <a href="index.php?action=home">Retour à la page d'accueil pour vous reconnecter</a>
-            </div>
-        <?php } 
+            unset($_SESSION['user']); 
+            Utils::redirect("home");
+        } 
+
+        // Restituer la vue
+        $view = new View('ShowProfile');
+        $view->render('profile', ['user' => $user, 'books' => $books, 'picErrors' => $picErrors]);
     }
 }
