@@ -8,11 +8,11 @@
         <h1 class="profile_title">Mon compte</h1>
         <div class="profile_data">
             <div class="profile_avatar avatar">
+                <input type="file" name="picture" id="imageInput" accept="image.jpg, image.jpeg, image.png" class="input_none" form="modifyUserInfo"/>
                 <div class="updateBook_cover" id="userPicWrap">
-                    <img class="avatar_img" src="<?= $user->getPicture() ?>" alt="photo de profile">
+                    <img class="avatar_img" id="previewImage" src="<?= $user->getPicture() ?>" alt="photo de profile">
                 </div>
-                <input type="file" name="picture" id="modifyUserPic" class="input_none" form="modifyUserInfo"/>
-                <label for="modifyUserPic" role="button" class="avatar_label">modifier</label>
+                <label for="imageInput" role="button" class="avatar_label">modifier</label>
                 <div class="avatar_line"></div>
                 <h2 class="avatar_title">
                     <?= $user->getPseudo() ?>

@@ -7,11 +7,11 @@
 <h2 class="updateBook_title">Modifier les informations</h2>
 <div class="updateBook-img">
     <span class="updateBook_subTitle">Photo</span>
-    <input type="file" name="picture" id="modifyBookImg" class="input_none" form="updateBook"/>
+    <input type="file" name="picture" id="imageInput" accept="image.jpg, image.jpeg, image.png" class="input_none" form="updateBook"/>
     <div class="updateBook_cover" id="userPicWrap">
-        <img src="<?= $book->getPicture() ?>" alt="Couverture du livre">
+        <img id="previewImage" src="<?= $book->getPicture() ?>" alt="Couverture du livre">
     </div>
-    <label for="modifyBookImg" role="button">modifier la photo</label>
+    <label for="imageInput" role="button">modifier la photo</label>
 </div>
 
 <form action="index.php?action=updateBook" method="post" class="updateBook_form" id="updateBook" enctype="multipart/form-data">
