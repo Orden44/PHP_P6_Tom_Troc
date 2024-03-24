@@ -100,16 +100,34 @@ class BookManager extends AbstractEntityManager
      */
     public function updateBook(Book $book) : void
     {
-        if ($book->getPicture() == null) {
+        if ($book->getPicture() == null && $book->getAvailable() == false) {
             $sql = "UPDATE book SET title = :title, author = :author, content = :content, available = :available WHERE id = :id";
             $this->db->query($sql, [
                 'title' => $book->getTitle(),
                 'author' => $book->getAuthor(),
                 'content' => $book->getContent(),
-                'available' => 1,
+                'available' => 0,
                 'id' => $book->getId()
             ]);
-    
+        } elseif ($book->getPicture() == null && $book->getAvailable() == true) {
+            $sql = "UPDATE book SET title = :title, author = :author, content = :content, available = :available WHERE id = :id";
+            $this->db->query($sql, [
+                'title' => $book->getTitle(),
+                'author' => $book->getAuthor(),
+                'content' => $book->getContent(),
+                'available' => $book->getAvailable(),
+                'id' => $book->getId()
+            ]);
+        } elseif ($book->getPicture() !== null && $book->getAvailable() == false) {
+            $sql = "UPDATE book SET title = :title, author = :author, picture = :picture, content = :content, available = :available WHERE id = :id";
+            $this->db->query($sql, [
+                'title' => $book->getTitle(),
+                'author' => $book->getAuthor(),
+                'picture' => $book->getPicture(),
+                'content' => $book->getContent(),
+                'available' => 0,
+                'id' => $book->getId()
+            ]);    
         } else {
             $sql = "UPDATE book SET title = :title, author = :author, picture = :picture, content = :content, available = :available WHERE id = :id";
             $this->db->query($sql, [
@@ -117,7 +135,7 @@ class BookManager extends AbstractEntityManager
                 'author' => $book->getAuthor(),
                 'picture' => $book->getPicture(),
                 'content' => $book->getContent(),
-                'available' => 1,
+                'available' => $book->getAvailable(),
                 'id' => $book->getId()
             ]);    
         }

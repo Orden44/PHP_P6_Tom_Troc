@@ -103,7 +103,7 @@ class BookController
         $author = Utils::request("author");
         $picture = Utils::request("picture");
         $content = Utils::request("content");
-        $available = Utils::request("available");
+        $available = (Utils::request("available") == "false") ? 0 : 1;
 
         // On vérifie que les données sont valides.
         if (empty($title)) {
