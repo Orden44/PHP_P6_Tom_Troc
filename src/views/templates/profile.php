@@ -9,14 +9,10 @@
         <div class="profile_data">
             <div class="profile_avatar avatar">
                 <input type="file" name="picture" id="imageInput" accept="image.jpg, image.jpeg, image.png" class="input_none" form="modifyUserInfo"/>
-                <div class="updateBook_cover" id="userPicWrap">
-                    <img class="avatar_img" id="previewImage" src="<?= $user->getPicture() ?>" alt="photo de profile">
-                </div>
+                <img class="avatar_img" id="previewImage" src="<?= $user->getPicture() ?>" alt="photo de profile">
                 <label for="imageInput" role="button" class="avatar_label">modifier</label>
                 <div class="avatar_line"></div>
-                <h2 class="avatar_title">
-                    <?= $user->getPseudo() ?>
-                </h2>
+                <h2 class="avatar_title"><?= $user->getPseudo() ?></h2>
                 <p class="avatar_date">Membre depuis 1 an</p>
                 <h3 class="avatar_subtitle">BIBLIOTHEQUE</h3>
                 <div class="avatar_count">
@@ -88,8 +84,7 @@
                                 </tr>
                                 <?php
                             }
-                        }
-                        ?>
+                        } ?>
                     </tbody>
                 </table>
             <?php } ?>

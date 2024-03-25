@@ -1,27 +1,32 @@
 /**
- * Déclaration des couleurs.
- */
- :root {
+* Déclaration des couleurs.
+*/
+:root {
     --backgroundColor: #F5F3EF;
+    --backgroundColorInput: #EDF2F6;
     --bookListColor: #FAF9F7;
     --buttonColor: #00AC66;
     --darkButtonColor: #006D41;
-    --grayText: #a6a6a6;
+    --gray: #A6A6A6;
     --darkGray: #292929;
     --lightgreen: #d1f6e7;
 }
 
+/**
+* Valeur par défaut pour les balises.
+*/
 * {
     font-family: "Inter";
-  }
-  
- body {
+}
+
+body {
+    width: 1440px;
     background-color: var(--backgroundColor);
 }
 
 h1, h2 {
     font-family: "Playfair Display", sans-serif;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 400;
     letter-spacing: 1px;
 }
@@ -36,9 +41,9 @@ a:hover {
 }
 
 /**
- * Header
- */
- header {
+* Header
+*/
+header {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -47,7 +52,7 @@ a:hover {
     align-items: center;
 }
 
- header ul {
+header ul {
     margin: 0;
     display: flex;
     align-items: center;
@@ -85,6 +90,9 @@ header > nav > a, .messaging, .account {
     color: var(--darkGray);
 }
 
+/**
+* page accueil
+*/
 .readers {
     display: flex;
     flex-direction: row;
@@ -114,12 +122,14 @@ header > nav > a, .messaging, .account {
 .readers_img p {
     font-size: 12px;
     font-style: italic;
-    color: var(--grayText);
+    color: var(--gray);
     text-align: end;
     margin: 5px 15px 0 0;
 }
 
-/* Affichage des livres */
+/**
+* Affichage des livres
+*/
 .book_search {
     margin: 0 70px;
     display: flex;
@@ -128,25 +138,25 @@ header > nav > a, .messaging, .account {
 }
 
 .input-container {
-  position: relative;
-  background-color: white;
+    position: relative;
+    background-color: white;
 }
 
 .fa-magnifying-glass {
-  position: absolute;
-  left: 10px; 
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--grayText);
+    position: absolute;
+    left: 10px; 
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray);
 }
 
 .search_input {
-  color: var(--grayText);
-  font-size: 14px;
-  padding: 1rem 12px;
-  border-radius: 6px;
-  border: 2px solid #f0f0f0;
-  padding-left: 40px; 
+    color: var(--gray);
+    font-size: 14px;
+    padding: 1rem 12px;
+    border-radius: 6px;
+    border: 2px solid #f0f0f0;
+    padding-left: 40px; 
 }
 
 .bookList {
@@ -182,14 +192,14 @@ header > nav > a, .messaging, .account {
 .book_card_description .book_card_author {
     margin: 5px 10px;
     font-size: 14px;
-    color: var(--grayText);
+    color: var(--gray);
 }
 
 .book_card_description .book_card_owner {
     margin: 22px 10px; 
     font-size: 10px;
     font-style: italic;
-    color: var(--grayText);
+    color: var(--gray);
 }
 
 .button {
@@ -222,7 +232,7 @@ header > nav > a, .messaging, .account {
 
 .button:hover::after, .progress_button:hover::after {
     opacity: 1;
-  }
+}
 
 .button::after, .progress_button::after {
     content: "";
@@ -242,7 +252,7 @@ header > nav > a, .messaging, .account {
 .progress_button:hover {
     color: white;
 }
-  
+
 .book_card_available {
     position: relative;
     top: -18.5rem;
@@ -290,7 +300,7 @@ header > nav > a, .messaging, .account {
     display: flex;
     font-size: 12px;
     font-style: italic;
-    color: var(--grayText);
+    color: var(--gray);
 }
 
 .values_img img {
@@ -301,6 +311,9 @@ header > nav > a, .messaging, .account {
     margin-left: 70px;
 }
 
+/**
+* Page connexion
+*/
 .connection-form {
     display: flex;
     flex-direction: row;
@@ -325,8 +338,9 @@ header > nav > a, .messaging, .account {
 
 .formGrid input {
     margin: 0.5rem 0 1.5rem;
-    border: none;
-    height: 40px; 
+    border: 1px;
+    border-radius: 6px;
+    height: 50px; 
 }
 
 .registration {
@@ -339,6 +353,10 @@ header > nav > a, .messaging, .account {
 .registration a {
     text-decoration: underline;
 }
+
+/**
+* Single livre
+*/
 .owner {
     display: flex;
     align-items: center;
@@ -351,9 +369,320 @@ header > nav > a, .messaging, .account {
 .owner p {
     margin: 0 10px;
 }
+
+/**
+* Page mon compte.
+*/
+.profile {
+    background-color: #faf9f7;
+    padding-bottom: 92px;
+}
+
+.profile_card {
+    max-width: 95%; 
+}
+
+.profile_title {
+    padding-top: 48px; 
+    padding-bottom: 32px; 
+    margin: 0;
+}
+
+.profile_data {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+}
+
+.avatar {
+    background-color: white;
+    border-radius: 20px;
+    width: 95%; 
+    margin: auto; 
+    padding: 20px; 
+}
+
+.avatar_img {
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile_avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 48px;
+    padding-bottom: 32px;
+}
+
+.input_none {
+    display: none;
+}
+
+.avatar_label {
+    cursor: pointer;
+    margin-top: 5px;
+    text-decoration: underline;
+}
+
+.avatar_line {
+    width: 242px; 
+    height: 1px;
+    background-color: var(--backgroundColor);
+    margin: 32px auto; 
+}
+
+.avatar_title {
+    margin: 0;
+    margin-bottom: 11px;
+    font-size: 24px;
+}
+
+.avatar_date {
+    margin-bottom: 21px;
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.avatar_subtitle {
+    margin: 0;
+    margin-bottom: 6px;
+    font-size: 8px;
+    font-weight: normal;
+    }
+
+.avatar_count {
+    font-size: 14px;
+    display: flex;
+    gap: 5px;
+}
+
+.personalInfo_title {
+    margin: 0;
+    margin-bottom: 26px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.avatar_label {
+    display: block;
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+.personalInfo_label {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.personalInfo_input {
+    margin: 0.5rem 0 1.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    border-radius: 6px;
+    background-color: var(--backgroundColorInput);
+    border: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+.personalInfo_input:focus {
+    color: var(--darkGray);
+}
+
+.profile_books {
+    max-width: 100%;
+    background-color: white;
+    margin-top: 2rem;
+    border-radius: 20px;
+}
+
+.profileBooks_table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.profileBooks_head {
+    border-bottom: 1px solid grey;
+    padding: 8px;
+    text-align: left;
+}
+
+.profile_books thead th {
+    text-align: left;
+    font-size: 0.5rem;
+    padding: 20px 20px 10px 20px; 
+    font-weight: normal;
+}
+
+.profile_books thead th:first-child {
+    padding-left: 20px; 
+}
+
+.profileBooks_table tr:last-child td:first-child {
+    border-bottom-left-radius: 20px;
+}
+
+.profileBooks_table tr:last-child td:last-child {
+    border-bottom-right-radius: 20px;
+}
+
+.profile_books tbody td {
+    border: none;
+    font-size: 12px;
+}
+
+.profile_books tbody td:first-child {
+    padding-bottom: 20px; 
+    padding-top: 20px; 
+}
+
+.profile_books tbody tr:nth-child(even) {
+    background-color: var(--backgroundColorInput);
+}
+
+.profile_books tbody img {
+    width: 78px;
+    height: 78px;
+    object-fit: cover;
+}
+
+.profile_books tbody .description {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    max-width: 128px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    font-style: italic;
+}
+
+.profile_books tbody .edit-delete a:first-child {
+    margin-right: 20px; 
+    color: black;
+}
+
+.profile_books tbody .edit-delete a:last-child {
+    color: red;
+}
+
+.profile_books tbody .indisponible {
+    background-color: #c56d6d;
+    color: white;
+    padding: 3.7px 13.31px;
+    width: fit-content;
+    border-radius: 29.58px;
+}
+
+.profile_books tbody .disponible {
+    background-color: #6dc5a1;
+    color: white;
+    padding: 3.7px 13.31px;
+    width: fit-content;
+    border-radius: 29.58px;
+}
+
 /** 
- * Footer global de la page.
- */
+* error page.
+*/
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh / 1.2);
+}
+
+.error a {
+    font-weight: bold;
+    text-decoration: underline var(--buttonColor);
+}
+
+/** 
+* book edition page.
+*/
+.updateBook {
+    margin: 0 100px;
+}
+
+.updateBook a {
+    color: var(--gray);
+}
+
+.updateBook_data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    background: white;
+}
+
+.updateBook_img {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 50px;
+}
+
+.updateBook_img #previewImage {
+    width: 488px;
+}
+
+.updateBook_subTitle {
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+.updateBook_img label {
+    margin: 20px 0 10px 375px;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.updateBook_img label:hover {
+    color: var(--darkButtonColor);
+    cursor: pointer;
+}
+
+.updateBook_form {
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+}
+
+.updateBook_form label {
+    color: var(--gray);
+    font-size: 14px;
+}
+
+.updateBook_form input, .updateBook_form #available {
+    height: 50px; 
+}
+
+.updateBook_form #content {
+    height: 356px;
+}
+
+.updateBook_form input, .updateBook_form #content, .updateBook_form #available {
+    width: 410px;
+    margin: 0.5rem 0 1.5rem;
+    border: 1px;
+    border-radius: 6px;
+    background-color: var(--backgroundColorInput);
+    padding: 15px;
+}
+
+.updateBook_form .button {
+  margin: 1.5rem 0;
+  width: 320px
+}
+/** 
+* Footer global de la page.
+*/
 footer  {
     display: flex;
     flex-direction: row;
@@ -368,221 +697,3 @@ footer > nav {
     gap: 30px;
     margin: 20px;
 }
-
-/* profile */
-.profile {
-    background-color: #faf9f7;
-    padding-bottom: 92px;
-  }
-  
-  .profile_card {
-    max-width: 95%; 
-  }
-  
-  .profile_title {
-    padding-top: 48px; 
-    padding-bottom: 32px; 
-    margin: 0;
-  }
-  
-  .profile_data {
-    display: flex;
-    flex-direction: row; 
-    gap: 20px; 
-  }
-  
-  .avatar {
-    background-color: white;
-    border-radius: 20px;
-    width: 95%; 
-    margin: auto; 
-    padding: 20px; 
-  }
-  
-  .avatar_img {
-    width: 135px;
-    height: 135px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-  
-  .profile_avatar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 48px;
-    padding-bottom: 32px;
-  }
-  
-  .input_none {
-    display: none;
-  }
-  
-  .avatar_label {
-    cursor: pointer;
-    margin-top: 5px;
-    text-decoration: underline;
-  }
-  
-  .avatar_line {
-    width: 242px; 
-    height: 1px;
-    background-color: var(--backgroundColor);
-    margin: 32px auto; 
-  }
-  
-  .avatar_title {
-    margin: 0;
-    margin-bottom: 11px;
-    font-size: 24px;
-  }
-  
-  .avatar_date {
-    margin-bottom: 21px;
-    font-size: 14px;
-    color: var(--grayText);
-  }
-  
-  .avatar_subtitle {
-    margin: 0;
-    margin-bottom: 6px;
-    font-size: 8px;
-    font-weight: normal;
-  }
-  
-  .avatar_count {
-    font-size: 14px;
-    display: flex;
-    gap: 5px;
-  }
-  
-  .personalInfo_title {
-    margin: 0;
-    margin-bottom: 26px;
-    font-size: 16px;
-    font-weight: 400;
-  }
-  
-  .avatar_label {
-    display: block;
-    font-size: 14px;
-    color: var(--grayText);
-    margin-bottom: 10px;
-  }
-  
-  .personalInfo_input {
-    box-sizing: border-box;
-    width: 100%;
-    height: 48px;
-    border-radius: 6px;
-    background-color: #edf2f6;
-    border: 1px solid #f0f0f0;
-    margin-bottom: 20px;
-    padding: 0 14px;
-    font-size: 14px;
-    color: var(--grayText);
-  }
-
-  .personalInfo_input:focus {
-    /* border: 3px solid var(--buttonColor); */
-    color: var(--darkGray);
-  }
-  
-  .profile_books {
-    max-width: 100%;
-    background-color: white;
-    margin-top: 2rem;
-    border-radius: 20px;
-  }
-  
-  .profileBooks_table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  .profileBooks_head {
-    border-bottom: 1px solid grey;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .profile_books thead th {
-    text-align: left;
-    font-size: 0.5rem;
-    padding: 20px 20px 10px 20px; 
-    font-weight: normal;
-  }
-  
-  .profile_books thead th:first-child {
-    padding-left: 20px; 
-  }
-  
-  .profileBooks_table tr:last-child td:first-child {
-    border-bottom-left-radius: 20px;
-  }
-  
-  .profileBooks_table tr:last-child td:last-child {
-    border-bottom-right-radius: 20px;
-  }
-  
-  .profile_books tbody td {
-    border: none;
-    font-size: 12px;
-  }
-  
-  .profile_books tbody td:first-child {
-    padding-bottom: 20px; 
-    padding-top: 20px; 
-  }
-  
-  .profile_books tbody tr:nth-child(even) {
-    background-color: #edf2f6;
-  }
-  
-  .profile_books tbody img {
-    width: 78px;
-    height: 78px;
-    object-fit: cover;
-  }
-  
-  .profile_books tbody .description {
-    display: -webkit-box;
-    -webkit-box-align: center;
-    max-width: 128px;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    margin: 0;
-    font-style: italic;
-  }
-  
-  .profile_books tbody .edit-delete a:first-child {
-    margin-right: 20px; 
-    color: black;
-  }
-  
-  .profile_books tbody .edit-delete a:last-child {
-    color: red;
-  }
-  
-  .profile_books tbody .indisponible {
-    background-color: #c56d6d;
-    color: white;
-    padding: 3.7px 13.31px;
-    width: fit-content;
-    border-radius: 29.58px;
-  }
-  
-  .profile_books tbody .disponible {
-    background-color: #6dc5a1;
-    color: white;
-    padding: 3.7px 13.31px;
-    width: fit-content;
-    border-radius: 29.58px;
-  }
-  
-  .background-page-edit-book {
-    background-color: #faf9f7;
-    padding-bottom: 92px;
-  }
-  

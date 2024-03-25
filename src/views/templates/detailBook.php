@@ -12,7 +12,7 @@
         <img class="book_card_available_detail" src="public/img/non_dispo.png" alt="availability">
     <?php } ?>
 
-    <h2> <?= Utils::format($book->getTitle()) ?> </h2>
+    <h1> <?= Utils::format($book->getTitle()) ?> </h1>
     <p><?= 'Par ' . htmlspecialchars($book->getAuthor(), ENT_QUOTES); ?></p>
     <!-- la ligne 15 renvoie à la ligne à cause de la méthode format -->
 

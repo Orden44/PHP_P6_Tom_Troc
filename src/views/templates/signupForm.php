@@ -6,7 +6,7 @@
 
 <div class="connection-form">
     <form action="index.php?action=registerUser" method="post">
-        <h2>Inscription</h2>
+        <h1>Inscription</h1>
         <div class="formGrid">
             <label for="pseudo">Pseudo</label>
             <input type="text" name="pseudo" id="pseudo" required>
