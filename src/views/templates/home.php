@@ -1,6 +1,6 @@
 <?php
     /**
-     * Affichage de Liste des livres. 
+     * Affichag de la page accueil. 
      */
 ?>
 <section class="readers">

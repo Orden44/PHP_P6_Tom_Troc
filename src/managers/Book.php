@@ -8,11 +8,11 @@
  {
     private string $title = "";
     private string $author = "";
-    private string $picture = "";
+    private ?string $picture = "";
     private string $content = "";
     private string $owner = "";
     private string $userImage = "";
-    private bool $available;
+    private bool $available = false;
 
     /**
      * Setter pour le titre.
@@ -54,7 +54,7 @@
      * Setter pour l'image du livre.
      * @param string $picture
      */
-    public function setPicture(string $picture) : void 
+    public function setPicture(?string $picture) : void 
     {
         $this->picture = $picture;
     }
@@ -63,7 +63,7 @@
      * Getter pour l'image.
      * @return string
      */
-    public function getPicture() : string 
+    public function getPicture() : ?string 
     {
         return $this->picture;
     }
@@ -151,4 +151,25 @@
     {
         return $this->available;
     }
+
+    /**
+     * Set l'URL de l'image à partir d'un formulaire soumis.
+     * La méthode renvoie un tableau d'erreurs si l'image n'est pas valide.
+     * @param string $imgName
+     * @param string $filePath
+     * @return array
+     */
+    public function setImageFromForm($imgName, $filePath): array 
+    {
+        if (!empty($_FILES[$imgName]['name'])) {
+            list($picErrors, $picPath) = Utils::uploadImage($imgName, $filePath);
+
+            if (empty($picErrors)) {
+                $this->setPicture($picPath);
+            }
+        } 
+
+        return $picErrors ?? [];
+    }
+
  }
