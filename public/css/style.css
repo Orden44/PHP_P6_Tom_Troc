@@ -9,7 +9,7 @@
     --darkButtonColor: #006D41;
     --gray: #A6A6A6;
     --darkGray: #292929;
-    --lightgreen: #d1f6e7;
+    --lightGray: #FAF9F7;
 }
 
 /**
@@ -21,6 +21,7 @@
 
 body {
     width: 1440px;
+    margin: 0 0 0 2rem;
     background-color: var(--backgroundColor);
 }
 
@@ -182,6 +183,11 @@ header > nav > a, .messaging, .account {
     margin: 25px;
 }
 
+.book_card_img {
+    width: 200px;
+    height: 200px;
+}
+
 .book_card_description h3 {
     margin: 18px 5px 10px 10px ;
     font-size: 16px;
@@ -257,12 +263,6 @@ header > nav > a, .messaging, .account {
     position: relative;
     top: -18.5rem;
     left: 7rem;  
-}
-
-.book_card_available_detail {
-    position: absolute;
-    top: 2.5rem;
-    left: 7.3rem; 
 }
 
 .progress, .progress_description, .values {
@@ -600,7 +600,12 @@ header > nav > a, .messaging, .account {
 
 .error a {
     font-weight: bold;
-    text-decoration: underline var(--buttonColor);
+    color: var(--buttonColor);
+    text-decoration: underline;
+}
+
+.error a:hover {
+    color: var(--darkButtonColor);
 }
 
 /** 
@@ -677,9 +682,88 @@ header > nav > a, .messaging, .account {
 }
 
 .updateBook_form .button {
-  margin: 1.5rem 0;
-  width: 320px
+    margin: 1.5rem 0;
+    width: 320px
 }
+
+/** 
+* book detail page.
+*/
+.detailBook {
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    background: white;
+}
+
+.detailBook_img {
+    width: 720px;
+    height: 863px;
+    object-fit: cover;
+}
+
+.detailBook_available {
+    position: absolute;
+    top: 10rem;
+    left: 30rem; 
+    width: 200px;
+}
+
+.detailBook_description {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 35px 50px;
+    background-color: var(--lightGray);
+}
+
+.detailBook_title {
+    font-size: 36px;
+}
+
+.detailBook_subtitle {
+    font-size: 6px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.detailBook_title  p {
+    margin: 0;
+    font-family: "Playfair Display", sans-serif;
+}
+
+.detailBook_author {
+    color: var(--gray);
+    margin: 0;
+}
+
+.detailBook_line3 {
+    color: var(--gray);
+}
+
+.detailBook_owner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0;
+    background-color: white;
+    padding: 6px 17px 6px 6px;
+    border-radius: 114px;
+    gap: 12px;
+    width: 160px;
+}
+
+.detailBook_owner_img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
+}
+
+.detailBook_description .button {
+    margin: 1.5rem 0;
+    height: 63px;
+}
+
 /** 
 * Footer global de la page.
 */

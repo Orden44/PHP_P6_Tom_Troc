@@ -94,7 +94,7 @@ class Utils {
     * @param array $validExtensions Les extensions valides pour le fichier
     * @return array Un tableau contenant les erreurs
     */
-    private static function imageValidate($file, $maxSize = 500000, $validExtensions = ['jpg', 'jpeg', 'png', 'webp']) : array
+    private static function imageValidate($file, $maxSize = 1500000, $validExtensions = ['jpg', 'jpeg', 'png', 'webp']) : array
     {
         $errors = [];
         $fileSize = $file['size'];

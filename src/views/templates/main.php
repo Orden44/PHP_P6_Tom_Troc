@@ -16,7 +16,7 @@
     <title>Tom Troc</title>
     <link rel="stylesheet" href="./public/css/style.css">
     <script src="https://kit.fontawesome.com/fd12a3a6d1.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&display=swap&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
