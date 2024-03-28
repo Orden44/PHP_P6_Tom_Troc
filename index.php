@@ -78,6 +78,11 @@ try {
             $userController->showProfile();
             break;
     
+        case 'owner': 
+            $userController = new UserController();
+            $userController->showOwner();
+            break;
+    
         case 'modifyUserInfo':
             $userController = new UserController();
             $userController->modifyUserInfo();

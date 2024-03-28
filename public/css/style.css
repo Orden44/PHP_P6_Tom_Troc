@@ -355,22 +355,6 @@ header > nav > a, .messaging, .account {
 }
 
 /**
-* Single livre
-*/
-.owner {
-    display: flex;
-    align-items: center;
-}
-
-.owner img {
-    width: 48px;
-}
-
-.owner p {
-    margin: 0 10px;
-}
-
-/**
 * Page mon compte.
 */
 .profile {
@@ -394,7 +378,7 @@ header > nav > a, .messaging, .account {
     gap: 20px; 
 }
 
-.avatar {
+.card {
     background-color: white;
     border-radius: 20px;
     width: 95%; 
@@ -402,14 +386,14 @@ header > nav > a, .messaging, .account {
     padding: 20px; 
 }
 
-.avatar_img {
+.profile_img {
     width: 135px;
     height: 135px;
     object-fit: cover;
     border-radius: 50%;
 }
 
-.profile_avatar {
+.profile_info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -421,39 +405,39 @@ header > nav > a, .messaging, .account {
     display: none;
 }
 
-.avatar_label {
+.profile_label {
     cursor: pointer;
     margin-top: 5px;
     text-decoration: underline;
 }
 
-.avatar_line {
+.profile_line {
     width: 242px; 
     height: 1px;
     background-color: var(--backgroundColor);
     margin: 32px auto; 
 }
 
-.avatar_title {
+.profile_title {
     margin: 0;
     margin-bottom: 11px;
     font-size: 24px;
 }
 
-.avatar_date {
+.profile_date {
     margin-bottom: 21px;
     font-size: 14px;
     color: var(--gray);
 }
 
-.avatar_subtitle {
+.profile_subtitle {
     margin: 0;
     margin-bottom: 6px;
     font-size: 8px;
     font-weight: normal;
     }
 
-.avatar_count {
+.profile_count {
     font-size: 14px;
     display: flex;
     gap: 5px;
@@ -466,7 +450,7 @@ header > nav > a, .messaging, .account {
     font-weight: 400;
 }
 
-.avatar_label {
+.profile_label {
     display: block;
     font-size: 14px;
     color: var(--gray);
@@ -542,7 +526,7 @@ header > nav > a, .messaging, .account {
     padding-top: 20px; 
 }
 
-.profile_books tbody tr:nth-child(even) {
+.profile_books tbody tr:nth-child(odd) {
     background-color: var(--backgroundColorInput);
 }
 
@@ -586,6 +570,137 @@ header > nav > a, .messaging, .account {
     padding: 3.7px 13.31px;
     width: fit-content;
     border-radius: 29.58px;
+}
+
+/**
+* Page owner.
+*/
+.owner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #faf9f7;
+    padding: 100px
+}
+
+.owner_img {
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.owner_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    width: 340px;
+    padding: 45px 0;;
+}
+
+.input_none {
+    display: none;
+}
+
+.owner_line {
+    width: 242px; 
+    height: 1px;
+    background-color: var(--backgroundColor);
+    margin: 32px auto; 
+}
+
+.owner_title {
+    margin: 0;
+    margin-bottom: 11px;
+    font-size: 24px;
+}
+
+.owner_date {
+    margin-bottom: 21px;
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.owner_subtitle {
+    margin: 0;
+    margin-bottom: 6px;
+    font-size: 8px;
+    font-weight: normal;
+    }
+
+.owner_count {
+    font-size: 14px;
+    display: flex;
+    gap: 5px;
+}
+
+.owner_books {
+    background-color: white;
+    border-radius: 20px;
+    width: 770px;
+}
+
+.ownerBooks_table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.ownerBooks_head {
+    border-bottom: 1px solid grey;
+    padding: 8px;
+    text-align: left;
+}
+
+.owner_books thead th {
+    text-align: left;
+    font-size: 0.5rem;
+    padding: 20px 20px 10px 20px; 
+    font-weight: normal;
+}
+
+.owner_books thead th:first-child {
+    padding-left: 20px; 
+}
+
+.ownerBooks_table tr:last-child td:first-child {
+    border-bottom-left-radius: 20px;
+}
+
+.ownerBooks_table tr:last-child td:last-child {
+    border-bottom-right-radius: 20px;
+}
+
+.owner_books tbody td {
+    border: none;
+    font-size: 12px;
+}
+
+.owner_books tbody td:first-child {
+    padding-bottom: 20px; 
+    padding: 20px; 
+}
+
+.owner_books tbody tr:nth-child(odd) {
+    background-color: var(--backgroundColorInput);
+}
+
+.owner_books tbody img {
+    width: 78px;
+    height: 78px;
+    object-fit: cover;
+}
+
+.owner_books tbody .description {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    max-width: 128px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    font-style: italic;
 }
 
 /** 
@@ -762,6 +877,7 @@ header > nav > a, .messaging, .account {
 .detailBook_description .button {
     margin: 1.5rem 0;
     height: 63px;
+    width: 100%;
 }
 
 /** 

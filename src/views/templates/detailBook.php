@@ -20,13 +20,16 @@
         <div class="detailBook_content">
             <p><?= Utils::format($book->getContent()) ?></p>
         </div>
-        <h3 class="detailBook_subtitle">PROPTIETAIRE</h3>
+        <h3 class="detailBook_subtitle">PROPRIETAIRE</h3>
         <div class="detailBook_owner">
             <img class="detailBook_owner_img" src="<?= $book->getUserImage() ?>" alt="<?= $book->getOwner() ?>">
-            <a href="index.php?action=profile">
+            <a href="index.php?action=owner&id=<?= $book->getUserId() ?>">
                 <p><?= $book->getOwner() ?></p>
             </a>
         </div>
-        <button type="submit" class="button">Envoyer un message</button>
+        <form action="index.php?action=messaging" method="post">
+            <input type="hidden" name="id" value="<?= $book->getUserId() ?>">
+            <button type="submit" class="button">Envoyer un message</button>
+        </form>
     </div>
 </article>

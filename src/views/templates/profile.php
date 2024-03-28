@@ -7,21 +7,21 @@
     <div class="profile_card">
         <h1 class="profile_title">Mon compte</h1>
         <div class="profile_data">
-            <div class="profile_avatar avatar">
+            <div class="profile_info card">
                 <input type="file" name="picture" id="imageInput" accept="image.jpg, image.jpeg, image.png, image.webp" class="input_none" form="modifyUserInfo"/>
-                <img class="avatar_img" id="previewImage" src="<?= $user->getPicture() ?>" alt="photo de profile">
-                <label for="imageInput" role="button" class="avatar_label">modifier</label>
-                <div class="avatar_line"></div>
-                <h2 class="avatar_title"><?= $user->getPseudo() ?></h2>
-                <p class="avatar_date">Membre depuis 1 an</p>
-                <h3 class="avatar_subtitle">BIBLIOTHEQUE</h3>
-                <div class="avatar_count">
+                <img class="profile_img" id="previewImage" src="<?= $user->getPicture() ?>" alt="photo de profile">
+                <label for="imageInput" role="button" class="profile_label">modifier</label>
+                <div class="profile_line"></div>
+                <h2 class="profile_title"><?= $user->getPseudo() ?></h2>
+                <p class="profile_date">Membre depuis 1 an</p>
+                <h3 class="profile_subtitle">BIBLIOTHEQUE</h3>
+                <div class="profile_count">
                     <img src="public/img/Vector.svg" alt="Icon de livres">
                     <?= isset($books) ? count($books) : 0 ?> livres
                 </div>
             </div>
 
-            <div class="profile_information avatar personalInfo">
+            <div class="profile_information card personalInfo">
                 <h3 class="personalInfo_title">Vos informations personnelles</h3>
                 <form class="personalInfo_form" action="index.php?action=modifyUserInfo" method="post" id="modifyUserInfo" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?= $user->getId() ?>">
