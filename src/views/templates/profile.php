@@ -56,17 +56,17 @@
                                 ?>
                                 <tr>
                                     <td>
-                                        <img src="<?php echo $book->getPicture(); ?>"
-                                            alt="Image du livre <?php echo $book->getTitle(); ?>"></td>
+                                        <img src="<?= $book->getPicture(); ?>"
+                                            alt="Image du livre <?= $book->getTitle(); ?>"></td>
                                     <td class="title">
-                                        <?php echo $book->getTitle(); ?>
+                                        <?= $book->getTitle(); ?>
                                     </td>
                                     <td class="author">
-                                        <?php echo $book->getAuthor(); ?>
+                                        <?= $book->getAuthor(); ?>
                                     </td>
                                     <td>
                                         <p class="description">
-                                            <?php echo $book->getContent(); ?>
+                                            <?= $book->getContent(); ?>
                                         </p>
                                     </td>
                                     <td>
@@ -77,8 +77,8 @@
                                         <?php endif; ?>
                                     </td>
                                     <td class="edit-delete">
-                                        <a href="index.php?action=showUpdateBookForm&id=<?php echo $book->getId(); ?>" class="edit">Éditer</a>
-                                        <a href="index.php?action=deleteBook&id=<?php echo $book->getId(); ?>" class="delete" 
+                                        <a href="index.php?action=showUpdateBookForm&id=<?= $book->getId(); ?>" class="edit">Éditer</a>
+                                        <a href="index.php?action=deleteBook&id=<?= $book->getId(); ?>" class="delete" 
                                         <?= Utils::askConfirmation("Êtes-vous sûr de vouloir supprimer ce livre ?") ?>>Supprimer</a>
                                     </td>
                                 </tr>

@@ -38,17 +38,19 @@
                             ?>
                             <tr>
                                 <td>
-                                    <img src="<?php echo $book->getPicture(); ?>"
-                                        alt="Image du livre <?php echo $book->getTitle(); ?>"></td>
+                                    <a href="index.php?action=showBook&id=<?= $book->getId() ?>">
+                                        <img src="<?= $book->getPicture(); ?>"
+                                        alt="Image du livre <?= $book->getTitle(); ?>"></td>
+                                    </a>
                                 <td class="title">
-                                    <?php echo $book->getTitle(); ?>
+                                    <?= $book->getTitle(); ?>
                                 </td>
                                 <td class="author">
-                                    <?php echo $book->getAuthor(); ?>
+                                    <?= $book->getAuthor(); ?>
                                 </td>
                                 <td>
                                     <p class="description">
-                                        <?php echo $book->getContent(); ?>
+                                        <?= $book->getContent(); ?>
                                     </p>
                                 </td>
                             </tr>

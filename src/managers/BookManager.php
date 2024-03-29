@@ -11,7 +11,7 @@ class BookManager extends AbstractEntityManager
      */
     public function getAllBooks() : array
     {
-        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, user.pseudo as owner, book.available 
+        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, book.id_user, user.pseudo as owner, book.available 
         FROM book INNER JOIN user ON book.id_user = user.id";
         $result = $this->db->query($sql);
         $books = [];
@@ -28,7 +28,7 @@ class BookManager extends AbstractEntityManager
      */
     public function searchBooks(string $query) : ?array
     {
-        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, user.pseudo as owner, book.available 
+        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, book.id_user, user.pseudo as owner, book.available 
         FROM book INNER JOIN user ON book.id_user = user.id WHERE book.title LIKE ? OR book.author LIKE ?";
         $result = $this->db->query($sql, ["%$query%", "%$query%"]);
         $books = [];
@@ -45,7 +45,7 @@ class BookManager extends AbstractEntityManager
      */
     public function lastBooks() : array
     {
-        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, user.pseudo as owner, book.available 
+        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, book.id_user, user.pseudo as owner, book.available 
         FROM book INNER JOIN user ON book.id_user = user.id GROUP BY id DESC LIMIT 4";
         $result = $this->db->query($sql);
         $books = [];
@@ -64,7 +64,7 @@ class BookManager extends AbstractEntityManager
      */
     public function getBookById(?int $id = null, ?int $userId = null) 
     {
-        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, user.pseudo AS owner, user.picture AS userImage, book.available 
+        $sql = "SELECT book.id, book.title, book.author, book.picture, book.content, book.id_user, user.pseudo AS owner, user.picture AS userImage, book.available 
         FROM book INNER JOIN user ON book.id_user = user.id";
 
         if ($id !== null) {
@@ -83,7 +83,7 @@ class BookManager extends AbstractEntityManager
             $sql .= " WHERE book.id_user = :userId ORDER BY book.id DESC";
             $params = ["userId" => $userId];          
             $stmt = $this->db->query($sql, $params);
-            $stmt->execute(["userId" => $userId]);
+            $stmt->execute($params);
             $books = [];
 
             while ($book = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -101,7 +101,7 @@ class BookManager extends AbstractEntityManager
     public function updateBook(Book $book) : void
     {
         if ($book->getPicture() == null && $book->getAvailable() == false) {
-            $sql = "UPDATE book SET title = :title, author = :author, content = :content, available = :available WHERE id = :id";
+            $sql = "UPDATE book SET title = :title, author = :author, content = :content, available = :available  WHERE id = :id";
             $this->db->query($sql, [
                 'title' => $book->getTitle(),
                 'author' => $book->getAuthor(),

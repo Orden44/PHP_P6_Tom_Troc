@@ -10,6 +10,7 @@
     private string $author = "";
     private ?string $picture = "";
     private string $content = "";
+    private int $userId = 2;
     private string $owner = "";
     private string $userImage = "";
     private bool $available = false;
@@ -96,6 +97,24 @@
             return $content;
         }
         return $this->content;
+    }
+
+    /**
+     * Setter pour l'id du possesseur.
+     * @param int $userId
+     */
+    public function setUserId(int $userId) : void
+    {
+        $this->userId = $userId;
+    }
+
+    /**
+     * Getter pour l'id du possesseur.
+     * @return int
+     */
+    public function getUserId() : int
+    {
+        return $this->userId;
     }
 
     /**
