@@ -6,7 +6,7 @@ class BookController
      * Vérifie que l'utilisateur est connecté.
      * @return void
      */
-    private function checkIfUserIsConnected() : void
+    public function checkIfUserIsConnected() : void
     {
         // On vérifie que l'utilisateur est connecté.
         if (!isset($_SESSION['user'])) {
@@ -62,7 +62,8 @@ class BookController
         $this->checkIfUserIsConnected();
 
         $bookManager = new BookManager();
-        $book = $bookManager->getBookById($id);        
+        $book = $bookManager->getBookById($id);  
+      
         if (!$book) {
             throw new Exception("Le livre demandé n'existe pas.");
         }

@@ -10,7 +10,7 @@
     private string $author = "";
     private ?string $picture = "";
     private string $content = "";
-    private int $userId = 2;
+    private int $userId;
     private string $owner = "";
     private string $userImage = "";
     private bool $available = false;
@@ -26,10 +26,22 @@
 
     /**
      * Getter pour le titre.
+     * Retourne les $length premiers caractères du contenu.
+     * @param int $length : le nombre de caractères à retourner.
+     * Si $length n'est pas défini (ou vaut -1), on retourne tout le contenu.
+     * Si le contenu est plus grand que $length, on retourne les $length premiers caractères avec "..." à la fin.
      * @return string
      */
-    public function getTitle() : string 
+    public function getTitle(int $length = -1) : string 
     {
+        if ($length > 0) {
+            // Ici, on utilise mb_substr et pas substr pour éviter de couper un caractère en deux (caractère multibyte comme les accents).
+            $title = mb_substr($this->title, 0, $length);
+            if (strlen($this->title) > $length) {
+                $title .= "...";
+            }
+            return $title;
+        }
         return $this->title;
     }
 
@@ -114,6 +126,8 @@
      */
     public function getUserId() : int
     {
+        // print("--".$this->userId."--");
+
         return $this->userId;
     }
 
@@ -128,10 +142,22 @@
 
     /**
      * Getter pour le possesseur.
+     * Retourne les $length premiers caractères du contenu.
+     * @param int $length : le nombre de caractères à retourner.
+     * Si $length n'est pas défini (ou vaut -1), on retourne tout le contenu.
+     * Si le contenu est plus grand que $length, on retourne les $length premiers caractères avec "..." à la fin.
      * @return string
      */
-    public function getOwner() : string 
+    public function getOwner(int $length = -1) : string 
     {
+        if ($length > 0) {
+            // Ici, on utilise mb_substr et pas substr pour éviter de couper un caractère en deux (caractère multibyte comme les accents).
+            $owner = mb_substr($this->owner, 0, $length);
+            if (strlen($this->title) > $length) {
+                $owner .= "...";
+            }
+            return $owner;
+        }
         return $this->owner;
     }
 
@@ -187,7 +213,6 @@
                 $this->setPicture($picPath);
             }
         } 
-
         return $picErrors ?? [];
     }
 

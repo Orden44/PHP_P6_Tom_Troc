@@ -21,6 +21,7 @@
             <p><?= Utils::format($book->getContent()) ?></p>
         </div>
         <h3 class="detailBook_subtitle">PROPRIETAIRE</h3>
+
         <div class="detailBook_owner">
             <img class="detailBook_owner_img" src="<?= $book->getUserImage() ?>" alt="<?= $book->getOwner() ?>">
             <a href="index.php?action=owner&id=<?= $book->getUserId() ?>">

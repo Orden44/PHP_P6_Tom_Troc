@@ -29,8 +29,6 @@ class UserController
 
         $userManager = new UserManager;
         $user = $userManager->findUser('id', $userId) ?? null;
-        // echo '<pre>'; print_r( $_SESSION['idUser']); echo '</pre>';
-        // echo '<pre>'; print_r($userId); echo '</pre>';exit;
 
         if (!$user) {
             throw new Exception("L'utilisateur n'existe pas.");
