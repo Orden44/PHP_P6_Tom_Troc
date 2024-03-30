@@ -17,7 +17,13 @@
                 <h3 class="profile_subtitle">BIBLIOTHEQUE</h3>
                 <div class="profile_count">
                     <img src="public/img/Vector.svg" alt="Icon de livres">
-                    <?= isset($books) ? count($books) : 0 ?> livres
+                    <?php if (count($books) == 0) { ?>
+                        Pas de livre
+                    <?php } elseif (count($books) == 1) { ?>
+                        1 livre
+                    <?php } else { 
+                        echo isset($books) ? count($books) : 0 ?> livres
+                    <?php } ?>
                 </div>
             </div>
 
