@@ -126,8 +126,6 @@
      */
     public function getUserId() : int
     {
-        // print("--".$this->userId."--");
-
         return $this->userId;
     }
 
@@ -215,5 +213,4 @@
         } 
         return $picErrors ?? [];
     }
-
  }
