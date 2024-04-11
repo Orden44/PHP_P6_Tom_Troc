@@ -10,6 +10,7 @@
     --gray: #A6A6A6;
     --darkGray: #292929;
     --lightGray: #FAF9F7;
+    --skyBlue: #EDF2F6;
 }
 
 /**
@@ -41,6 +42,18 @@ a:hover {
     color: var(--darkButtonColor);
 }
 
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
 /**
 * Header
 */
@@ -68,13 +81,13 @@ header li {
     font-weight: bold;
 }
 
-.messaging {
+.messaging_header {
     display: flex;
     flex-direction: row;
     gap: 5px;
 }
 
-.messaging img, .account img {
+.messaging_header img, .account img {
     height: 15px;
 }
 
@@ -86,7 +99,7 @@ header li {
     font-size: xx-small;
 }
 
-header > nav > a, .messaging, .account {
+header > nav > a, .messaging_header, .account {
     padding: 20px;
     color: var(--darkGray);
 }
@@ -862,10 +875,10 @@ header > nav > a, .messaging, .account {
     align-items: center;
     margin: 10px 0;
     background-color: white;
-    padding: 6px 17px 6px 6px;
+    padding: 6px;
     border-radius: 114px;
     gap: 12px;
-    width: 160px;
+    width: 200px;
 }
 
 .detailBook_owner_img {
@@ -878,6 +891,125 @@ header > nav > a, .messaging, .account {
     margin: 1.5rem 0;
     height: 63px;
     width: 100%;
+}
+
+/** 
+* Page messagerie.
+*/
+.messaging {
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    min-height: calc(100vh / 1.2);
+    font-size: 12px;
+}
+
+.messaging img {
+    width: 48px; 
+    height: 48px;
+}
+
+.messaging_owner {
+    width: 25%;
+    background-color: var(--lightGray);
+}
+
+.messaging_owner_title {
+    margin-left: 20px;
+}
+
+.messaging_conversation {
+    width: 75%;
+    margin: 30px
+}
+
+.messaging_conversation_text {
+    width: 630px;
+    height: 50px;
+    padding-left: 20px;
+    border: white;
+}
+
+.messaging_conversation_empty {
+    background-color: white;
+    margin: 200px;
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.messaging_conversation_intrerlocutor {
+    margin-bottom: 15px;
+}
+
+.messaging_owner_interlocutors_line {
+    padding: 20px;
+}
+
+.bg-white{
+    padding: 20px;
+    background-color: white;
+}
+
+.messaging_conversation_intrerlocutor h2 {
+    margin: 5px 15px;
+}
+
+.messaging_owner_interlocutors_content P {
+    margin: 0 5px 5px 15px;
+}
+
+.messaging_owner_interlocutors_title {
+    width: 240px;
+    margin-top: 5px;
+    justify-content: space-between;
+}
+
+.messaging_owner_interlocutors_content_msg {
+    color: var(--gray);
+}
+
+.messaging_owner_interlocutors_title span {
+    margin-bottom: 5px;
+}
+
+.messaging_owner_interlocutors_title_count {
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    padding: 2px;
+}
+
+.messaging_conversation_messages {
+    margin-bottom: auto;
+}
+
+.messaging_conversation_messages_date {
+    padding-left: 5px;
+    color: var(--gray);
+}
+
+.messaging_conversation_messages_date_user {
+    margin-left: auto;
+    text-align: end;
+}
+
+.messaging_conversation_messages_content {
+    width: 500px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.messaging_conversation_messages_content_user {
+    background-color: var(--skyBlue);
+    margin-left: auto;
+    text-align: end;
+}
+
+.messaging_conversation_messages img {
+    width: 24px;
+    height: 24px;
 }
 
 /** 

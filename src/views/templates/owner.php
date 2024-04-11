@@ -20,7 +20,7 @@
                 echo isset($books) ? count($books) : 0 ?> livres
             <?php } ?>
         </div>
-        <form action="index.php?action=messaging" method="post">
+        <form action="index.php?action=messaging&id=<?= $user->getId() ?>" method="post">
             <input type="hidden" name="id" value="<?= $user->getId() ?>">
             <button type="submit" class="progress_button">Écrire un message</button>
         </form>

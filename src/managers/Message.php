@@ -2,20 +2,20 @@
 
 /**
  * Entité représentant un message.
- * Avec les champs id, id_chats, content et date_creation.
+ * Avec les champs id, id_émetteur, id_récepteur, content, date_creation et message consulté.
  */
 class Message extends AbstractEntity 
 {
-    private string $sender = "";
-    private string $receiver = "";
+    private int $sender;
+    private int $receiver;
     private string $content = "";
     private ?DateTime $dateCreation = null;
-    
+    private bool $consulted = false;
     /**
      * Setter pour l'id de l'expéditeur du message.
      * @param string $sender
      */
-    public function setSender(string $sender) : void 
+    public function setSender(int $sender) : void 
     {
         $this->sender = $sender;
     }
@@ -24,25 +24,25 @@ class Message extends AbstractEntity
      * Getter pour l'id de l'expéditeur du message.
      * @return string
      */
-    public function getSender() : string 
+    public function getSender() : int 
     {
         return $this->sender;
     }
 
-        /**
+    /**
      * Setter pour l'id du récepteur du message.
      * @param string $receiver
      */
-    public function setReceiver(string $receiver) : void 
+    public function setReceiver(int $receiver) : void 
     {
         $this->receiver = $receiver;
     }
 
     /**
-     * Getter pour l'id de l'expéditeur du message.
+     * Getter pour l'id du récepteur du message.
      * @return string
      */
-    public function getReceiver() : string 
+    public function getReceiver() : int
     {
         return $this->receiver;
     }
@@ -89,5 +89,23 @@ class Message extends AbstractEntity
             $dateCreation = DateTime::createFromFormat($format, $dateCreation);
         }
         $this->dateCreation = $dateCreation;
+    }
+
+    /**
+     * Setter pour la consultation du message.
+     * @param bool $consulted
+     */
+    public function setConsulted(bool $consulted) : void
+    {
+        $this->consulted = $consulted;
+    }
+
+    /**
+     * Getter pour la consultation du message.
+     * @return bool
+     */
+    public function getConsulted() : bool
+    {
+        return $this->consulted;
     }
 }

@@ -17,8 +17,12 @@ class UserController
 
         // Récupére les livres de l'utilisateur
         $bookManager = new BookManager();
-        $books = $bookManager->getBookById(null, $user->getId());        
-            
+        $books = $bookManager->getBookById(null, $user->getId());  
+        
+        // On calcule le nombre de messages non consultés
+        $messaging = new MessageManager();
+        $_SESSION['nbMessages'] = $messaging->getNbMessages($_SESSION['idUser']);
+                    
         $view = new View('ShowProfile');
         $view->render('profile', ['user' => $user, 'books' => $books]);
     }

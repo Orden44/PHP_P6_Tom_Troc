@@ -7,7 +7,6 @@
  *      $content string : le contenu de la page. 
  */
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,7 +21,7 @@
     <header>
         <a href="index.php">
             <img class="logo" src="public/img/logo.svg" alt="logo Tom Troc">
-        </a>       
+        </a>   
         <?php if (isset($_SESSION['user'])): ?>
             <nav>
                 <ul>
@@ -39,9 +38,14 @@
             <nav>
                 <ul>
                     <li 
-                        class="messaging <?= (isset($_GET['action']) && !empty($_GET['action'] == "messaging")) ? 'active' : "" ?>">
+                        class="messaging_header <?= (isset($_GET['action']) && !empty($_GET['action'] == "messaging")) ? 'active' : "" ?>">
                         <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
                         <a href="index.php?action=messaging">Messagerie</a>
+                        <?php
+                        if (isset($_SESSION['nbMessages'])): 
+                        ?>
+                            <span class="messaging_owner_interlocutors_title_count"><?= $_SESSION['nbMessages']?></span>
+                        <?php endif; ?> 
                     </li>
                     <li 
                         class="account <?= (isset($_GET['action']) && !empty($_GET['action'] == "profile")) ? 'active' : "" ?>">

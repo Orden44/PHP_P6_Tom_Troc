@@ -3,7 +3,6 @@
      * Ce template affiche un livre.
      */
 ?>
-
 <article class="detailBook">
     <img class="detailBook_img" src="<?= $book->getPicture() ?>" alt="<?= $book->getTitle() ?>"> 
     <div class="detailBook_description">
@@ -28,7 +27,7 @@
                 <p><?= $book->getOwner() ?></p>
             </a>
         </div>
-        <form action="index.php?action=messaging" method="post">
+        <form action="index.php?action=messaging&id=<?= $book->getUserId() ?>" method="post">
             <input type="hidden" name="id" value="<?= $book->getUserId() ?>">
             <button type="submit" class="button">Envoyer un message</button>
         </form>
