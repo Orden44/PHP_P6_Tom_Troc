@@ -54,6 +54,10 @@ class AdminController
         $_SESSION['user'] = serialize($user);
         $_SESSION['idUser'] = $user->getId();
 
+        // On calcule le nombre de messages non consultés
+        $messaging = new MessageManager();
+        $_SESSION['nbMessages'] = $messaging->getNbMessages($user->getId());
+
         // On redirige vers la page d'acceuil.
         Utils::redirect("home");
     }

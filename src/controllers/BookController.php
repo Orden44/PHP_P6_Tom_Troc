@@ -6,9 +6,8 @@ class BookController
      * Vérifie que l'utilisateur est connecté.
      * @return void
      */
-    private function checkIfUserIsConnected() : void
+    public function checkIfUserIsConnected() : void
     {
-        // On vérifie que l'utilisateur est connecté.
         if (!isset($_SESSION['user'])) {
             Utils::redirect("connectionForm");
         }
@@ -24,7 +23,11 @@ class BookController
 
         $bookManager = new BookManager();
         $books = $bookManager->lastBooks();
-        
+
+        // On calcule le nombre de messages non consultés
+        $messaging = new MessageManager();
+        $_SESSION['nbMessages'] = $messaging->getNbMessages($_SESSION['idUser']);
+                
         $view = new View("Accueil");
         $view->render("home", ['books' => $books]);
     }
@@ -39,7 +42,7 @@ class BookController
 
         $bookManager = new BookManager();
 
-        // Si l'utilisateur a recherché un livre dans la barre de recherche, nous affichons les résultats
+        // Recherche d'un livre dans la barre de recherche avec l'insertion de 3 caractères minimum pour afficher les résultats
         // Sinon, nous affichons tous les livres
         if (isset($_POST['search']) && strlen($_POST['search']) >= 3) {
             $query = htmlspecialchars($_POST['search']);
@@ -48,6 +51,10 @@ class BookController
             $books = $bookManager->getAllBooks();
         }
 
+        // On calcule le nombre de messages non consultés
+        $messaging = new MessageManager();
+        $_SESSION['nbMessages'] = $messaging->getNbMessages($_SESSION['idUser']);
+        
         $view = new View("Books");
         $view->render("books", ['books' => $books]);
     }
@@ -62,7 +69,8 @@ class BookController
         $this->checkIfUserIsConnected();
 
         $bookManager = new BookManager();
-        $book = $bookManager->getBookById($id);        
+        $book = $bookManager->getBookById($id);  
+      
         if (!$book) {
             throw new Exception("Le livre demandé n'existe pas.");
         }
@@ -156,5 +164,4 @@ class BookController
         // On redirige vers la page Mon compte.
         Utils::redirect("profile");
     }
-
 }

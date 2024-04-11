@@ -7,7 +7,6 @@
  *      $content string : le contenu de la page. 
  */
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,13 +15,13 @@
     <title>Tom Troc</title>
     <link rel="stylesheet" href="./public/css/style.css">
     <script src="https://kit.fontawesome.com/fd12a3a6d1.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&display=swap&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <a href="index.php">
             <img class="logo" src="public/img/logo.svg" alt="logo Tom Troc">
-        </a>       
+        </a>   
         <?php if (isset($_SESSION['user'])): ?>
             <nav>
                 <ul>
@@ -39,9 +38,14 @@
             <nav>
                 <ul>
                     <li 
-                        class="messaging <?= (isset($_GET['action']) && !empty($_GET['action'] == "messaging")) ? 'active' : "" ?>">
+                        class="messaging_header <?= (isset($_GET['action']) && !empty($_GET['action'] == "messaging")) ? 'active' : "" ?>">
                         <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
                         <a href="index.php?action=messaging">Messagerie</a>
+                        <?php
+                        if (isset($_SESSION['nbMessages'])): 
+                        ?>
+                            <span class="messaging_owner_interlocutors_title_count"><?= $_SESSION['nbMessages']?></span>
+                        <?php endif; ?> 
                     </li>
                     <li 
                         class="account <?= (isset($_GET['action']) && !empty($_GET['action'] == "profile")) ? 'active' : "" ?>">

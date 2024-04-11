@@ -11,7 +11,7 @@
     <div class="updateBook_data">
         <div class="updateBook_img">
             <span class="updateBook_subTitle">Photo</span>
-            <input type="file" name="picture" id="imageInput" accept="image.jpg, image.jpeg, image.png" class="input_none" form="updateBook"/>
+            <input type="file" name="picture" id="imageInput" accept="image.jpg, image.jpeg, image.png, image.webp" class="input_none" form="updateBook"/>
             <img id="previewImage" src="<?= $book->getPicture() ?>" alt="Couverture du livre">
             <label for="imageInput" role="button">Modifier la photo</label>
         </div>

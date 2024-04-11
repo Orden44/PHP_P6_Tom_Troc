@@ -17,10 +17,38 @@ class UserController
 
         // Récupére les livres de l'utilisateur
         $bookManager = new BookManager();
-        $books = $bookManager->getBookById(null, $user->getId());        
-            
+        $books = $bookManager->getBookById(null, $user->getId());  
+        
+        // On calcule le nombre de messages non consultés
+        $messaging = new MessageManager();
+        $_SESSION['nbMessages'] = $messaging->getNbMessages($_SESSION['idUser']);
+                    
         $view = new View('ShowProfile');
         $view->render('profile', ['user' => $user, 'books' => $books]);
+    }
+
+    public function showOwner(): void
+    {
+        $userId = $_GET['id'];
+
+        $userManager = new UserManager;
+        $user = $userManager->findUser('id', $userId) ?? null;
+
+        if (!$user) {
+            throw new Exception("L'utilisateur n'existe pas.");
+        }
+
+        // Récupére les livres de l'utilisateur
+        $bookManager = new BookManager();
+        $books = $bookManager->getBookById(null, $user->getId());        
+        
+        $view = new View('ShowOwner');
+
+        if ( $_SESSION['idUser'] == $userId) {
+            $view->render('profile', ['user' => $user, 'books' => $books]);
+        } else {
+            $view->render('owner', ['user' => $user, 'books' => $books]);
+        }
     }
         
     /**

@@ -7,17 +7,28 @@
  */
 class Utils {
     /**
-     * Convertit une date vers le format de type "Samedi 15 juillet 2023" en francais.
+     * Convertit une date vers le format de type "30.03 12:46" en francais.
      * @param DateTime $date : la date à convertir.
      * @return string : la date convertie.
      */
-    public static function convertDateToFrenchFormat(DateTime $date) : string
+    public static function convertDateFormatLong(DateTime $date) : string
     {
-        // Attention, s'il y a un soucis lié à IntlDateFormatter c'est qu'il faut
-        // activer l'extention intl_date_formater (ou intl) au niveau du serveur apache. 
-        // Ca peut se faire depuis php.ini ou parfois directement depuis votre utilitaire (wamp/mamp/xamp)
         $dateFormatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::FULL);
-        $dateFormatter->setPattern('EEEE d MMMM Y');
+        $dateFormatter->setPattern('dd.MM H:mm');
+
+        return $dateFormatter->format($date);
+    }
+
+    /**
+     * Convertit une date vers le format de type heure.
+     * @param DateTime $date : la date à convertir.
+     * @return string : la date convertie.
+     */
+    public static function convertDateFormatShort(DateTime $date) : string
+    {
+        $dateFormatter = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::FULL);
+        $dateFormatter->setPattern('H:mm');
+
         return $dateFormatter->format($date);
     }
 
@@ -94,7 +105,7 @@ class Utils {
     * @param array $validExtensions Les extensions valides pour le fichier
     * @return array Un tableau contenant les erreurs
     */
-    private static function imageValidate($file, $maxSize = 500000, $validExtensions = ['jpg', 'jpeg', 'png', 'webp']) : array
+    private static function imageValidate($file, $maxSize = 1500000, $validExtensions = ['jpg', 'jpeg', 'png', 'webp']) : array
     {
         $errors = [];
         $fileSize = $file['size'];
@@ -136,7 +147,5 @@ class Utils {
         }
 
         return [$picErrors, $targetFile];
-
     }
-
 }

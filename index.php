@@ -12,7 +12,6 @@ $id = Utils::request('id');
 try {
     // Pour chaque action, on appelle le bon contrôleur et la bonne méthode.
     switch ($action) {
-        // Pages accessibles à tous.
         case 'home':
             $bookController = new BookController();
             $bookController->showHome();
@@ -47,7 +46,12 @@ try {
             $messageController = new MessageController();
             $messageController->showMessaging();
             break;
-      
+
+        case 'sendMessage':
+            $messageController = new MessageController();
+            $messageController->sendMessage();
+            break;
+          
         case 'connectionForm':
             $adminController = new AdminController();
             $adminController->displayConnectionForm();
@@ -76,6 +80,11 @@ try {
         case 'profile': 
             $userController = new UserController();
             $userController->showProfile();
+            break;
+    
+        case 'owner': 
+            $userController = new UserController();
+            $userController->showOwner();
             break;
     
         case 'modifyUserInfo':

@@ -24,9 +24,9 @@
                 <a href="index.php?action=showBook&id=<?= $book->getId() ?>">
                     <img class="book_card_img" src="<?= $book->getPicture() ?>" alt="<?= $book->getTitle() ?>">
                     <div class="book_card_description">
-                        <h3 class="book_card_title"><?= $book->getTitle() ?></h3>
+                        <h3 class="book_card_title"><?= $book->getTitle(19) ?></h3>
                         <p class="book_card_author"><?= $book->getAuthor() ?></p>
-                        <p class="book_card_owner">Vendu par : <?=$book->getOwner() ?></p>
+                        <p class="book_card_owner">Vendu par : <?=$book->getOwner(11) ?></p>
                     </div>
                 </a>
             </div>
