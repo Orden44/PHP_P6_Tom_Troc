@@ -107,31 +107,21 @@ class BookManager extends AbstractEntityManager
             $params = ['title' => $book->getTitle()];
         }
 
-        if ($book->getAuthor()) {
-            $sql .= " author = :author,";
-            $params = $params + ['author' => $book->getAuthor()];
-        }
-
         if ($book->getPicture()) {
             $sql .= " picture = :picture,";
             $params = $params + ['picture' => $book->getPicture()];
         }
 
-        if ($book->getContent()) {
-            $sql .= " content = :content,";
-            $params = $params + ['content' => $book->getContent()];
-        }
-
         if ($book->getAvailable() == false) {
-            $sql .= " available = :available";
+            $sql .= " available = :available,";
             $params = $params + ['available' => 0,];
         } else {
-            $sql .= " available = :available";
+            $sql .= " available = :available,";
             $params = $params + ['available' => $book->getAvailable()];
         }
 
-        $sql .= " WHERE id = :id";
-        $params = $params + ['id' => $book->getId()];
+        $sql .= " author = :author, content = :content WHERE id = :id";
+        $params = $params + ['author' => $book->getAuthor(), 'content' => $book->getContent(), 'id' => $book->getId()];
 
         $stmt = $this->db->query($sql, $params);
         $stmt->execute($params);
