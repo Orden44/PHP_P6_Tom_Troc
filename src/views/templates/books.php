@@ -5,11 +5,11 @@
 ?>
 <section class="bookList">
     <div class="book_search">
-        <h1 class="bookList_title">Nos livres à l'échange</h1>
+        <h2 class="bookList_title">Nos livres à l'échange</h2>
         <form action="index.php?action=books" class="search" method="post">
             <div class="input-container">
                 <input class="search_input" type="search" name="search" placeholder="Rechercher un livre">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <em class="fa-solid fa-magnifying-glass"></em>
             </div>
         </form>
     </div>

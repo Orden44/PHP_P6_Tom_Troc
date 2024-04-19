@@ -11,13 +11,13 @@
             <img class="detailBook_available" src="public/img/non_dispo.png" alt="availability">
         <?php } ?>
 
-        <h1 class="detailBook_title"> <?= Utils::format($book->getTitle()) ?> </h1>
+        <h2 class="detailBook_title"><?= $book->getTitle() ?> </h2>
         <p class="detailBook_author"><?= 'par ' . htmlspecialchars($book->getAuthor(), ENT_QUOTES); ?></p>
         <p class="detailBook_line3">____</p>
 
         <h3 class="detailBook_subtitle">DESCRIPTION</h3>
         <div class="detailBook_content">
-            <p><?= Utils::format($book->getContent()) ?></p>
+            <?= Utils::format($book->getContent()) ?>
         </div>
         <h3 class="detailBook_subtitle">PROPRIETAIRE</h3>
 
