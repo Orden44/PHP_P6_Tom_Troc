@@ -55,7 +55,7 @@
                             <th>ACTION</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="profileBooks_table_tbody">
                         <?php
                         if (isset($books)) {
                             foreach ($books as $book) {
@@ -70,17 +70,17 @@
                                     <td class="author">
                                         <?= $book->getAuthor(); ?>
                                     </td>
+                                    <td class="available">
+                                        <?php if ($book->getAvailable()): ?>
+                                            <div class="disponible ">disponible</div>
+                                        <?php else: ?>
+                                            <div class="indisponible">non dispo.</div>
+                                        <?php endif; ?>
+                                    </td>
                                     <td>
                                         <p class="description">
                                             <?= $book->getContent(); ?>
                                         </p>
-                                    </td>
-                                    <td>
-                                        <?php if ($book->getAvailable()): ?>
-                                            <div class="disponible">disponible</div>
-                                        <?php else: ?>
-                                            <div class="indisponible">non dispo.</div>
-                                        <?php endif; ?>
                                     </td>
                                     <td class="edit-delete">
                                         <a href="index.php?action=showUpdateBookForm&id=<?= $book->getId(); ?>" class="edit">Éditer</a>

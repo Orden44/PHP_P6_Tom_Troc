@@ -35,6 +35,9 @@
         <?php if (!isset($_GET['id'])) { ?>
             <span class="messaging_conversation_empty">Sélectionnez un interlocuteur pour visualiser la conversation</span>
         <?php } else { ?>
+            <a href="index.php?action=messaging" class="back">
+                &larr; retour
+            </a>
             <div class="messaging_conversation_intrerlocutor d-flex">
                 <img class="messaging_conversation_intrerlocutor_img" src="<?= $interlocutor->getPicture() ?>" alt="<?= $interlocutor->getPseudo() ?>">
                 <h2><?= $interlocutor->getPseudo() ?></h2>
