@@ -27,7 +27,7 @@
                 <p><?= $book->getOwner() ?></p>
             </a>
         </div>
-        <form action="index.php?action=messaging&id=<?= $book->getUserId() ?>" method="post">
+        <form action="index.php?action=owner&id=<?= $book->getUserId() ?>" method="post">
             <input type="hidden" name="id" value="<?= $book->getUserId() ?>">
             <button type="submit" class="button">Envoyer un message</button>
         </form>

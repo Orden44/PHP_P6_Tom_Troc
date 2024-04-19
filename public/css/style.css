@@ -28,7 +28,7 @@ body {
 
 h1, h2 {
     font-family: "Playfair Display", sans-serif;
-    font-size: 26px;
+    font-size: 35px;
     font-weight: 400;
     letter-spacing: 1px;
 }
@@ -57,7 +57,7 @@ a:hover {
 /**
 * Header
 */
-header {
+header, .main_pages {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -104,6 +104,11 @@ header > nav > a, .messaging_header, .account {
     color: var(--darkGray);
 }
 
+.header_icon, #toggle
+{
+    display: none;
+}
+ 
 /**
 * page accueil
 */
@@ -121,12 +126,8 @@ header > nav > a, .messaging_header, .account {
     padding: 3rem 1rem;
 }
 
-.readers_description button, .progress_description button {
+.readers_description button {
     margin-left: 0;
-}
-
-.readers_description button a, .progress_description button a {
-    margin: 0 20px;
 }
 
 .readers_description p, .progress_description p, .values_description p {
@@ -272,6 +273,10 @@ header > nav > a, .messaging_header, .account {
     color: white;
 }
 
+.progress_img_h {
+    display: none;
+}
+
 .book_card_available {
     position: relative;
     top: -18.5rem;
@@ -291,11 +296,10 @@ header > nav > a, .messaging_header, .account {
 }
 
 .progress_description p {
-    width: 400px;
     text-align: center;
 }
 
-.values_description p {
+.progress_description_text, .values_description p {
     width: 400px;
 }
 
@@ -558,6 +562,19 @@ header > nav > a, .messaging_header, .account {
     overflow: hidden;
     margin: 0;
     font-style: italic;
+    position: relative;
+    left: -240px;
+}
+
+
+.profile_books tbody .disponible,
+.profile_books tbody .indisponible {
+    position: relative;
+    left: +270px;
+}
+
+.profile_books tbody .edit-delete a {
+    text-decoration: underline;
 }
 
 .profile_books tbody .edit-delete a:first-child {
@@ -923,6 +940,10 @@ header > nav > a, .messaging_header, .account {
     margin: 30px
 }
 
+.messaging_conversation .back {
+    display: none;
+}
+
 .messaging_conversation_text {
     width: 630px;
     height: 50px;
@@ -1019,7 +1040,7 @@ footer  {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    width: 100%;;
+    width: 100%;
     color: var(--darkGray);
     background-color: #FFFFFF;
 }
@@ -1028,4 +1049,371 @@ footer > nav {
     display: flex;
     gap: 30px;
     margin: 20px;
+}
+
+/****** Media queries ***********
+* Phones 
+*/
+@media (max-width: 425px) {
+    body,
+    .detailBook_description {
+        width: auto;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .button,
+    .detailBook_description .button,
+    .progress_button,
+    .search,
+    .values_description,
+    .values_description p,
+    .progress_description_subtitle {
+        width: 335px;
+    }
+
+    header {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 20px;
+        width: auto;
+    }
+
+    header ul,
+    .main_pages,
+    footer > nav,
+    .book_search,
+    .detailBook,
+    .profile_data {
+        flex-direction: column;
+    }
+
+    header li {
+        margin: 10px;
+    }
+
+    .main_pages,
+    .bookList .button,
+    .progress_img_lg,
+    .profileBooks_head {
+        display: none;
+    }
+
+    .main_pages a {
+        width: 50%;
+    }
+ 
+    .header_icon {
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        color: var(--gray);
+        cursor: pointer;
+    }
+
+    #toggle:checked + .main_pages {
+        display: flex;
+    }
+
+    .messaging_owner_interlocutors_title_count {
+        position: relative;
+        left: 25px;
+    }
+
+    footer {
+        width: auto;
+    }
+    
+    footer > nav {
+        align-items: center;
+        padding: 30px 0;
+    }
+
+    /** 
+    * accueil.
+    */
+    .readers,
+    .progress_steps,
+    .values_img ,footer {
+        display: block;
+        margin-bottom: 0;
+    }
+
+    .readers {
+        height: 810px;
+    }
+
+    .readers_img {
+        position: relative;
+        top: -530px;
+        left: -10px;
+    }
+
+    .readers_description {
+        position: relative;
+        top: 385px;
+    }
+
+    .readers_img img {
+        width: 375px;
+    }
+
+    header > nav > a,
+    .messaging_header,
+    .account {
+        padding: 0;
+    }
+
+    .bookList {
+        padding: 0 20px;
+    }
+
+    .bookList_title {
+        padding-top: 30px;
+        margin-top: 0;
+    }
+
+    .books_cards {
+        justify-content: space-between;
+        gap: 25px;
+    }
+
+    .book_card {
+        width: 180px;
+        height: auto;
+        margin: 0;
+    }
+
+    .book_card_img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .book_card_description h3 {
+        margin: 10px 5px;
+        font-size: 13px;
+        letter-spacing: initial;
+    }
+
+    .book_card_description .book_card_owner {
+        margin: 10px 5px 15px;
+    }
+
+    .progress_steps p {
+        width: 250px;
+        padding: 40px 40px;
+    }
+
+    .progress_img_h {
+        display: block;
+        margin: 3rem 0;
+    }
+
+    .progress,
+    .values {
+        margin: auto;
+    }
+
+    .progress_description {
+        margin-bottom: 0;
+    }
+
+    .progress_description .progress_button {
+        margin: 15px 0 0;
+    }
+
+    .progress_description_title {
+        margin-left: 25px;
+    }
+
+    .progress_description p {
+        font-size: 14px;
+    }
+
+    .values_description_title {
+        margin-top: -30px;
+    }
+
+    .values_img p {
+        margin-left: 130px;
+    }
+
+    .values_img img {
+        padding: 30px 230px;
+    }
+
+    /** 
+    * connection et inscription.
+    */
+    .connection-form {
+        display: block;
+        width: auto;
+        margin-left: 10px;
+    }
+
+    .connection-form form{
+        margin: 0 30px 60px;
+        width: auto;
+    }
+
+    .connection-form img {
+        width: 375px;
+        margin-left: 15px;
+    }
+
+    /** 
+    * books.
+    */
+    .book_search {
+        margin: 0 30px 40px;
+    }
+
+    .book_card_available {
+        top: -15.5rem;
+        left: 5.5rem;
+    }
+
+    /** 
+    * detailbook.
+    */
+    .detailBook {
+        align-items: center;
+    }
+
+    .detailBook_title {
+        font-size: 30px;
+    }
+
+    .detailBook_img {
+        width: 375px;
+        height: 450px;
+    }
+
+    /** 
+    * mon compte.
+    */
+    .profile_title {
+        padding: 30px;
+    }
+
+    .card {
+        width: 335px;
+        margin: 0 21px;
+        padding: 25px;
+    }
+
+    .progress_button {
+        margin: 15px 0;
+    }
+
+    .profile_books {
+        width: 375px;
+        margin: 10px 25px;
+        background-color: initial;
+    }
+
+    .profileBooks_table {
+        display:flex;
+    }
+
+    .profileBooks_table_tbody {
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .profileBooks_table_tbody tr {
+        border-radius: 20px;
+        width: 375px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .profile_books tbody td:first-child {
+        padding: 0;
+    }
+
+    .profile_books tbody img,
+    .profileBooks_table_tbody tr .title {
+        margin: 20px 0 0 20px;
+    }
+
+
+    .profileBooks_table_tbody tr .title,
+    .profileBooks_table_tbody tr .author {
+        width: 220px;
+    }   
+
+    .profileBooks_table_tbody tr .author {
+        position: relative;
+        top: -60px;
+        left: 120px;
+    }
+
+    .profileBooks tbody .disponible,
+    .profileBooks tbody .indisponible {
+        top: -30px;
+        left: -105px;
+    }
+
+    .profileBooks_table_tbody tr .description {
+        max-width: 330px;
+        width: 330px;
+        margin: -20px 0 0 20px;
+        position: initial;
+    }
+
+    .profileBooks_table_tbody tr .edit-delete {
+        margin: 25px;
+        width: 330px;
+    }
+
+    .profile_books tbody .edit-delete a:first-child {
+        margin-right: 60px;
+    }
+
+    .profile_books tbody tr:nth-child(even),
+    .profile_books tbody tr:nth-child(odd) {
+        background-color: white;
+    }
+
+    /** 
+    * messagerie.
+    */
+    .messaging {
+        display: block;
+    }
+
+    .messaging_conversation .back {
+        display: initial;
+        margin: 15px 0;
+        color: var(--gray);
+    }
+
+    .messaging_owner{
+        width: 375px;
+        margin-left: 25px;
+    }
+    
+    .messaging_conversation_empty {
+        display: none;
+    }
+    
+    .messaging_conversation_messages_content {
+        width: 260px;
+    }
+
+    .messaging_conversation_text {
+        width: 335px;
+    }
 }

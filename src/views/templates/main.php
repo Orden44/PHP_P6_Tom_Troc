@@ -22,52 +22,56 @@
         <a href="index.php">
             <img class="logo" src="public/img/logo.svg" alt="logo Tom Troc">
         </a>   
-        <?php if (isset($_SESSION['user'])): ?>
-            <nav>
-                <ul>
-                    <li 
-                        class="<?= (isset($_GET['action']) && !empty($_GET['action'] == "home")) ? 'active' : "" ?>">
-                        <a href="index.php?action=home">Accueil</a>
-                    </li>
-                    <li
-                        class="<?= (isset($_GET['action']) && !empty($_GET['action'] == "books")) ? 'active' : "" ?>">
-                        <a href="index.php?action=books">Nos livres à l'échange</a>                                
-                    </li>
-                </ul>
-            </nav>
-            <nav>
-                <ul>
-                    <li 
-                        class="messaging_header <?= (isset($_GET['action']) && !empty($_GET['action'] == "messaging")) ? 'active' : "" ?>">
-                        <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
-                        <a href="index.php?action=messaging">Messagerie</a>
-                        <?php
-                        if (isset($_SESSION['nbMessages'])): 
-                        ?>
-                            <span class="messaging_owner_interlocutors_title_count"><?= $_SESSION['nbMessages']?></span>
-                        <?php endif; ?> 
-                    </li>
-                    <li 
-                        class="account <?= (isset($_GET['action']) && !empty($_GET['action'] == "profile")) ? 'active' : "" ?>">
-                        <img src="public/img/IconMonCompte.svg" alt="icon mon compte">
-                        <a href="index.php?action=profile">Mon compte</a>
-                    </li>
-                    <li
-                        class=" <?=(isset($_GET['action']) && !empty($_GET['action'] == "connectionForm")) ? 'active' : "" ?>">
-                        <a href="index.php?action=disconnectUser">Déconnexion</a>
-                    </li>
-                </ul>
-            </nav>
-            <?php else: ?>
+        <label class="header_icon" for="toggle">☰</label>
+        <input type="checkbox" id="toggle">
+        <div class="main_pages">
+            <?php if (isset($_SESSION['user'])): ?>
                 <nav>
                     <ul>
+                        <li 
+                            class="<?= (isset($_GET['action']) && !empty($_GET['action'] == "home")) ? 'active' : "" ?>">
+                            <a href="index.php?action=home">Accueil</a>
+                        </li>
                         <li
-                            class=" <?= (isset($_GET['action']) && !empty($_GET['action'] == "connectionForm")) ? 'active' : "" ?>">
-                            <a href="index.php?action=connectUser">Connexion</a>
+                            class="<?= (isset($_GET['action']) && !empty($_GET['action'] == "books")) ? 'active' : "" ?>">
+                            <a href="index.php?action=books">Nos livres à l'échange</a>                                
                         </li>
                     </ul>
                 </nav>
+                <nav>
+                    <ul>
+                        <li 
+                            class="messaging_header <?= (isset($_GET['action']) && !empty($_GET['action'] == "messaging")) ? 'active' : "" ?>">
+                            <img src="public/img/IconMessagerie.svg" alt="icon messagerie">
+                            <a href="index.php?action=messaging">Messagerie</a>
+                            <?php
+                            if (isset($_SESSION['nbMessages']) && $_SESSION['nbMessages'] > 0): 
+                             ?>
+                                <span class="messaging_owner_interlocutors_title_count"><?= $_SESSION['nbMessages']?></span>
+                            <?php endif; ?> 
+                        </li>
+                        <li 
+                            class="account <?= (isset($_GET['action']) && !empty($_GET['action'] == "profile")) ? 'active' : "" ?>">
+                            <img src="public/img/IconMonCompte.svg" alt="icon mon compte">
+                            <a href="index.php?action=profile">Mon compte</a>
+                        </li>
+                        <li
+                            class=" <?=(isset($_GET['action']) && !empty($_GET['action'] == "connectionForm")) ? 'active' : "" ?>">
+                            <a href="index.php?action=disconnectUser">Déconnexion</a>
+                        </li>
+                    </ul>
+                </nav>
+            <?php else: ?>
+                    <nav>
+                        <ul>
+                            <li
+                                class=" <?= (isset($_GET['action']) && !empty($_GET['action'] == "connectionForm")) ? 'active' : "" ?>">
+                                <a href="index.php?action=connectUser">Connexion</a>
+                            </li>
+                        </ul>
+                    </nav>
             <?php endif; ?>
+        </div>
     </header>
     <main>    
         <?= $content /* Ici est affiché le contenu réel de la page. */ ?>

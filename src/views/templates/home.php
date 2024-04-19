@@ -7,9 +7,9 @@
     <div class="readers_description">
         <h1>Rejoignez nos lecteurs passionnés</h1>
         <p>Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres.</p>
-        <a href="index.php?action=books">
+        <form action="index.php?action=books" method="post">
             <button class="button">Découvrir</button>
-        </a>
+        </form>
     </div>
     <div class="readers_img">
         <img src="public/img/hamza.jpg" alt="reader behind many books on display">
@@ -32,31 +32,32 @@
             </div>
         <?php } ?>
     </div>
-    <a href="index.php?action=books">
+    <form action="index.php?action=books" method="post">
         <button class="button">Voir tous les livres</button>
-    </a>
+    </form>
 </section>
 <section class="progress">
     <div class="progress_description">
-        <h2>Comment ça marche ?</h2>
-        <p>Échanger des livres avec TomTroc c’est simple et amusant ! Suivez ces étapes pour commencer :</p>
+        <h2 class="progress_description_title">Comment ça marche ?</h2>
+        <p  class="progress_description_subtitle">Échanger des livres avec TomTroc c’est simple et amusant ! Suivez ces étapes pour commencer :</p>
         <div class="progress_steps">
-            <p>Inscrivez-vous gratuitement sur notre plateforme.</p>
-            <p>Ajoutez les livres que vous souhaitez échanger à votre profil.</p>
-            <p>Parcourez les livres disponibles chez d'autres membres.</p>
-            <p>Proposez un échange et discutez avec d'autres passionnés de lecture.</p>
+            <p class="progress_description_text">Inscrivez-vous gratuitement sur notre plateforme.</p>
+            <p class="progress_description_text">Ajoutez les livres que vous souhaitez échanger à votre profil.</p>
+            <p class="progress_description_text">Parcourez les livres disponibles chez d'autres membres.</p>
+            <p class="progress_description_text">Proposez un échange et discutez avec d'autres passionnés de lecture.</p>
         </div>
-        <a href="index.php?action=books">
+        <form action="index.php?action=books" method="post">
             <button class="progress_button">Voir tous les livres</button>
-        </a>
+        </form>
     </div>
     <div class="progress_img">
-        <img src="public/img/ReaderInLibrary.png" alt="reader in library">
+        <img src="public/img/ReaderInLibrary.png" alt="reader in library" class="progress_img_lg">
+        <img src="public/img/ReaderInLibrary2.png" alt="reader in library" class="progress_img_h">
     </div>
 </section>
 <section class="values">
     <div class="values_description">
-        <h2>Nos valeurs</h2>
+        <h2 class="values_description_title">Nos valeurs</h2>
         <p>Chez Tom Troc, nous mettons l'accent sur le partage, la découverte et la communauté. Nos valeurs sont ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. Nous croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes.</p>
         <p>Notre association a été fondée avec une conviction profonde : chaque livre mérite d'être lu et partagé.</p>
         <p>Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter, de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les étagères.</p>
