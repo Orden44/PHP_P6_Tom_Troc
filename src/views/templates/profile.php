@@ -8,9 +8,9 @@
         <h1 class="profile_title">Mon compte</h1>
         <div class="profile_data">
             <div class="profile_info card">
-                <input type="file" name="picture" id="imageInput" accept="image.jpg, image.jpeg, image.png, image.webp" class="input_none" form="modifyUserInfo"/>
+                <input type="file" name="picture" id="imageInput" accept="image/jpg, image/jpeg, image/png, image/webp" class="input_none" form="modifyUserInfo">
                 <img class="profile_img" id="previewImage" src="<?= $user->getPicture() ?>" alt="photo de profile">
-                <label for="imageInput" role="button" class="profile_label">modifier</label>
+                <label for="imageInput" class="profile_label">modifier</label>
                 <div class="profile_line"></div>
                 <h2 class="profile_title"><?= $user->getPseudo() ?></h2>
                 <p class="profile_date">Membre depuis 1 an</p>

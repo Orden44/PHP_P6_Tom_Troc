@@ -46,8 +46,9 @@
                                 <td>
                                     <a href="index.php?action=showBook&id=<?= $book->getId() ?>">
                                         <img src="<?= $book->getPicture(); ?>"
-                                        alt="Image du livre <?= $book->getTitle(); ?>"></td>
+                                        alt="Image du livre <?= $book->getTitle(); ?>">
                                     </a>
+                                </td>
                                 <td class="title">
                                     <?= $book->getTitle(); ?>
                                 </td>
