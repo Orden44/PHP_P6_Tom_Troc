@@ -91,6 +91,10 @@ header li {
     height: 15px;
 }
 
+.messaging_header  a {
+    padding-top: 2px;
+}
+
 .nbrMessage {
     background-color: var(--darkGray);
     border-radius: 15px;
@@ -150,6 +154,10 @@ header > nav > a, .messaging_header, .account {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.invisible {
+    display: none;
 }
 
 .input-container {
@@ -1091,7 +1099,8 @@ footer > nav {
     footer > nav,
     .book_search,
     .detailBook,
-    .profile_data {
+    .profile_data,
+    .owner {
         flex-direction: column;
     }
 
@@ -1404,7 +1413,7 @@ footer > nav {
         width: 375px;
         margin-left: 25px;
     }
-    
+
     .messaging_conversation_empty {
         display: none;
     }
@@ -1416,4 +1425,134 @@ footer > nav {
     .messaging_conversation_text {
         width: 335px;
     }
+
+    /** 
+    * updateBook.
+    */
+    .updateBook {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 375px;
+    }
+
+    .updateBook_data {
+        display: block;
+    }
+
+    .updateBook_img {
+        margin: 25px;
+    }
+
+    .updateBook_img #previewImage {
+        width: 335px;
+    }
+
+    .updateBook_img label {
+        display: flex;
+        justify-content: end;
+        margin: 20px 0 0;
+        width: 335px;
+    }
+
+    .updateBook_form input, .updateBook_form #content {
+        width: 305px;
+        padding: 0 15px;
+    }
+
+    .updateBook_form #content {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .updateBook_form #available {
+        width: 335px;
+        padding: 0 15px;
+    }
+
+    .updateBook_form .button {
+        width: 335px;
+    }
+
+    /** 
+    * owner.
+    */
+    .owner {
+        padding: 0;
+    }
+
+    .owner_title {
+        padding: 30px;
+    }
+
+    .owner_card {
+        width: 335px;
+        margin: 0 21px;
+        padding: 25px;
+    }
+
+    .ownerBooks_head {
+        display: none;
+    }
+    
+    .owner_card .progress_button {
+        margin-top: 35px;
+    }
+
+    .owner_books {
+        width: 375px;
+        margin: 10px 25px;
+        background-color: initial;
+    } 
+
+    .ownerBooks_table{
+        display:flex;
+    }
+ 
+    .ownerBooks_table tbody tr {
+        border-radius: 20px;
+        width: 375px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .ownerbooks tbody td:first-child {
+        padding: 0;
+    }
+
+    .ownerbooks tbody img {
+        margin: 20px 0 0 20px;
+    }
+
+    .ownerBooks tbody tr {
+        margin: 20px 0;
+    }
+
+    .ownerBooks tbody tr .title {
+        margin: 40px 0 0 20px;
+    }
+
+    .ownerBooks tbody tr .author {
+        margin-left: 20px;
+        position: relative;
+        top: -60px;
+        left: 120px;
+    }
+
+    .ownerBooks tbody tr .title,
+    .ownerBooks body tr .author {
+        width: 120px;
+    }   
+
+    .ownerBooks tbody tr .description {
+        max-width: 330px;
+        width: 330px;
+        margin: -10px 0 15px 20px;
+        position: initial;
+    }
+
+    .owner_books tbody tr:nth-child(even),
+    .owner_books tbody tr:nth-child(odd) {
+        background-color: white;
+    } 
 }
