@@ -8,8 +8,8 @@
         <h2 class="bookList_title">Nos livres à l'échange</h2>
         <form action="index.php?action=books" class="search" method="post">
             <div class="input-container">
-                <input class="search_input" type="search" name="search" placeholder="Rechercher un livre">
-                <em class="fa-solid fa-magnifying-glass"></em>
+                <label for="search"><em class="fa-solid fa-magnifying-glass"></em><span class="invisible">rechercher</span></label>
+                <input class="search_input" type="search" id="search" name="search" placeholder="Rechercher un livre">
             </div>
         </form>
     </div>
