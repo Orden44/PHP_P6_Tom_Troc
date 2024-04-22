@@ -21,8 +21,8 @@
 }
 
 body {
-    width: 1440px;
-    margin: 0 0 0 2rem;
+    width: 100%;
+    margin: 0;
     background-color: var(--backgroundColor);
 }
 
@@ -57,13 +57,19 @@ a:hover {
 /**
 * Header
 */
-header, .main_pages {
+header,
+.main_pages {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
     background-color: var(--backgroundColor);
     align-items: center;
+    gap: 10px;
+}
+
+header .logo {
+    margin-left: 20px;
 }
 
 header ul {
@@ -392,8 +398,7 @@ header > nav > a, .messaging_header, .account {
 }
 
 .profile_title {
-    padding-top: 48px; 
-    padding-bottom: 32px; 
+    padding: 25px;
     margin: 0;
 }
 
@@ -401,6 +406,7 @@ header > nav > a, .messaging_header, .account {
     display: flex;
     flex-direction: row; 
     gap: 20px; 
+    padding-left: 25px;
 }
 
 .card {
@@ -422,8 +428,8 @@ header > nav > a, .messaging_header, .account {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 48px;
-    padding-bottom: 32px;
+    padding-top: 40px;
+    padding-bottom: 30px;
 }
 
 .input_none {
@@ -507,7 +513,7 @@ header > nav > a, .messaging_header, .account {
 .profile_books {
     max-width: 100%;
     background-color: white;
-    margin-top: 2rem;
+    margin: 25px 0 10px 25px;
     border-radius: 20px;
 }
 
@@ -518,19 +524,15 @@ header > nav > a, .messaging_header, .account {
 
 .profileBooks_head {
     border-bottom: 1px solid grey;
-    padding: 8px;
     text-align: left;
 }
 
 .profile_books thead th {
     text-align: left;
     font-size: 0.5rem;
-    padding: 20px 20px 10px 20px; 
+    padding: 20px 20px 10px 40px; 
     font-weight: normal;
-}
 
-.profile_books thead th:first-child {
-    padding-left: 20px; 
 }
 
 .profileBooks_table tr:last-child td:first-child {
@@ -544,6 +546,7 @@ header > nav > a, .messaging_header, .account {
 .profile_books tbody td {
     border: none;
     font-size: 12px;
+    padding-left: 20px;
 }
 
 .profile_books tbody td:first-child {
@@ -571,14 +574,14 @@ header > nav > a, .messaging_header, .account {
     margin: 0;
     font-style: italic;
     position: relative;
-    left: -240px;
+    left: -100%;
 }
 
 
 .profile_books tbody .disponible,
 .profile_books tbody .indisponible {
     position: relative;
-    left: +270px;
+    left: 115%;
 }
 
 .profile_books tbody .edit-delete a {
@@ -615,10 +618,10 @@ header > nav > a, .messaging_header, .account {
 */
 .owner {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #faf9f7;
-    padding: 100px
+    padding: 100px 30px;
 }
 
 .owner_img {
@@ -817,7 +820,8 @@ header > nav > a, .messaging_header, .account {
     font-size: 14px;
 }
 
-.updateBook_form input, .updateBook_form #available {
+.updateBook_form input,
+.updateBook_form #available {
     height: 50px; 
 }
 
@@ -825,13 +829,23 @@ header > nav > a, .messaging_header, .account {
     height: 356px;
 }
 
-.updateBook_form input, .updateBook_form #content, .updateBook_form #available {
-    width: 410px;
+.updateBook_form input,
+.updateBook_form #content,
+.updateBook_form #available {
     margin: 0.5rem 0 1.5rem;
     border: 1px;
     border-radius: 6px;
     background-color: var(--backgroundColorInput);
     padding: 15px;
+}
+
+.updateBook_form input,
+.updateBook_form #content {
+    width: 410px;
+}
+
+.updateBook_form #available {
+    width: 440px;
 }
 
 .updateBook_form .button {
@@ -846,13 +860,13 @@ header > nav > a, .messaging_header, .account {
     display: flex;
     flex-direction: row;
     border-radius: 20px;
-    background: white;
 }
 
 .detailBook_img {
     width: 720px;
     height: 863px;
     object-fit: cover;
+    margin-left: 20px;
 }
 
 .detailBook_available {
@@ -865,8 +879,9 @@ header > nav > a, .messaging_header, .account {
 .detailBook_description {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 35px 50px;
+    align-items: center;
+    width: 720px;
+    padding: 0 30px;
     background-color: var(--lightGray);
 }
 
@@ -878,6 +893,10 @@ header > nav > a, .messaging_header, .account {
     font-size: 6px;
     font-weight: 600;
     margin: 10px 0;
+}
+
+.detailBook_content {
+    width: 485px;
 }
 
 .detailBook_title  p {
@@ -915,7 +934,7 @@ header > nav > a, .messaging_header, .account {
 .detailBook_description .button {
     margin: 1.5rem 0;
     height: 63px;
-    width: 100%;
+    width: 485px;
 }
 
 /** 
@@ -965,6 +984,7 @@ header > nav > a, .messaging_header, .account {
     padding: 10px;
     border-radius: 30px;
     text-align: center;
+    font-size: 17px;
 }
 
 .messaging_conversation_intrerlocutor {
@@ -1078,6 +1098,7 @@ footer > nav {
     }
 
     .button,
+    .detailBook_content,
     .detailBook_description .button,
     .progress_button,
     .search,
@@ -1298,6 +1319,10 @@ footer > nav {
         align-items: center;
     }
 
+    .detailBook_description {
+        padding: 0;
+    }
+
     .detailBook_title {
         font-size: 30px;
     }
@@ -1305,11 +1330,16 @@ footer > nav {
     .detailBook_img {
         width: 375px;
         height: 450px;
+        margin: auto;
     }
 
     /** 
     * mon compte.
     */
+    .profile_data {
+        padding: 0;
+    }
+
     .profile_title {
         padding: 30px;
     }
@@ -1372,13 +1402,12 @@ footer > nav {
     .profileBooks tbody .disponible,
     .profileBooks tbody .indisponible {
         top: -30px;
-        left: -105px;
+        left: -125px;
     }
 
     .profileBooks_table_tbody tr .description {
         max-width: 330px;
         width: 330px;
-        margin: -20px 0 0 20px;
         position: initial;
     }
 
